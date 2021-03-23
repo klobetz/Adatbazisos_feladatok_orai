@@ -1,0 +1,19 @@
+﻿1. adatbázis hozzáférésének a kiválasztása
+	Entity famework (ORM)
+
+	-Db first (data first)
+	DB------> DB context (Az adatokhoz való hozzáférést segítő osztály környezet)
+
+	-Model First
+	 DB<--------Model--------->DB context
+
+	-Code First
+	 DB<--------model<--------DB context
+
+	 mivan akkor ha már meglévő adatbázisod van?
+		akkor először DB first-el indulsz maj áttérsz a CF-re Van rá megoldás.
+
+-CF névkonvenció alapú és az elfogadott nyelv az angol
+
+2. Adatbázis létrehozása CF-el:
+
