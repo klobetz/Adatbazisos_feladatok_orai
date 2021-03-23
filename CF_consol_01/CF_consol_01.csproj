@@ -53,6 +53,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202103231506086_InitialCreate.cs" />
+    <Compile Include="Migrations\202103231506086_InitialCreate.designer.cs">
+      <DependentUpon>202103231506086_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103231628537_TodoItem table Closed Nullabel.cs" />
+    <Compile Include="Migrations\202103231628537_TodoItem table Closed Nullabel.designer.cs">
+      <DependentUpon>202103231628537_TodoItem table Closed Nullabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103231705365_new table cerate Severity and add 2 propertys.cs" />
+    <Compile Include="Migrations\202103231705365_new table cerate Severity and add 2 propertys.designer.cs">
+      <DependentUpon>202103231705365_new table cerate Severity and add 2 propertys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103231733316_add FK TodoItem.table and Default proterty.cs" />
+    <Compile Include="Migrations\202103231733316_add FK TodoItem.table and Default proterty.designer.cs">
+      <DependentUpon>202103231733316_add FK TodoItem.table and Default proterty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Severity.cs" />
     <Compile Include="Model\TodoContext.cs" />
     <Compile Include="Model\TodoItem.cs" />
     <Compile Include="Program.cs" />
@@ -64,6 +82,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CF_Entity_framework.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103231506086_InitialCreate.resx">
+      <DependentUpon>202103231506086_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103231628537_TodoItem table Closed Nullabel.resx">
+      <DependentUpon>202103231628537_TodoItem table Closed Nullabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103231705365_new table cerate Severity and add 2 propertys.resx">
+      <DependentUpon>202103231705365_new table cerate Severity and add 2 propertys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103231733316_add FK TodoItem.table and Default proterty.resx">
+      <DependentUpon>202103231733316_add FK TodoItem.table and Default proterty.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

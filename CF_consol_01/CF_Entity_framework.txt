@@ -36,3 +36,24 @@
 		var db = new TodoContext();
         Console.WriteLine(db.TodoItems.Count());
 
+3. Adatbázis struktúráján végzett módosítások
+Alapvetően két megoldás:
+	- Teljes adatbázis törlése majd az új (moidsított) létrehozása
+
+	- A másik megoldás a CF Migrations
+		- ehhez be kell kapcsolni a migrations-t (FIGYELNI KELL A KIVÁLASZTOTT PROJEKTET!!!!!!!!!)
+		  PM> Enable-Migrations (LÉTREJÖN A MIRGATIONS MAPPA A DB alap felállásával )
+
+		- migrációs lépés létrehozása:
+		  PM> Add-Migration 'TodoItem table Closed Nullabel' (''ide adom meg a módosításra utaló nevet)
+
+		- Migrációs lépés telepítése a DB-be:
+		  PM> Update-Database 
+		  ha csak az SQL utasítást szeretném megnézni akkor a PM> Update-Database -script parancs kell
+
+		- A migrációs lépések visszavonása: (A DB lenullázása)
+		  PM> Update-Database -TargetMigration 0
+
+4. 
+
+

@@ -14,10 +14,29 @@ namespace CF_consol_01.Model
 /// </summary>
     public class TodoItem
     {
+        public TodoItem()
+        {//az alapértelmezett érték megadása
+            IsDone = false;
+            Opened = DateTime.Now;
+            Closed = null;
+        }
+
         public int id { get; set; }
         public string Title { get; set; }
         public bool IsDone { get; set; }
         public DateTime Opened { get; set; } //mikor nyitott meg
-        public DateTime Closed { get; set; } //mikor zárt
+        public DateTime? Closed { get; set; } //mikor zárt
+
+        //miva akkor ha módosítanom kell az adatbázisomat?
+        //erre az esetre CF alat a Migrations segít
+
+
+        //új tábla léterhozása
+        public Severity Severity { get; set; }
+
+        //Én akarom kezelni az FK-t ezért hozom létre saját magam
+        //Ez nem lenne kötelező hiszen alapból is elékszítette nekem a DB-ben
+        public int SeverityId { get; set; }
+
     }
 }
