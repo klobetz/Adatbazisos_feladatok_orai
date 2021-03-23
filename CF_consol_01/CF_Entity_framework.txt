@@ -16,4 +16,23 @@
 -CF névkonvenció alapú és az elfogadott nyelv az angol
 
 2. Adatbázis létrehozása CF-el:
+  -léterhoztunk egy adatokat reprezentáló osztályt. (TodoItem)
+	
+	-Létrehoztuk a propertyket:
+		public int id { get; set; }
+        public string Title { get; set; }
+        public bool IsDone { get; set; }
+        public DateTime Opened { get; set; } //mikor nyitott meg
+        public DateTime Closed { get; set; } //mikor zárt
+  
+  -Létrehoztuk a a kapcsolati osztályt (TodoContext)
+	- leszármaztattunk: DcContext-ből 
+		Ehhez telepítettük az Entyty Framework-öt
+	- Összekötöttük a reprezentáló osztályunkat a kapcsolati osztállyal
+		public DbSet<TodoItem> TodoItems { get; set; }
+
+  - program.cs-ben használtuk a programot
+	- pédányosítottuk akapcsolat osztályt majd kiírtuk a darabszámot.
+		var db = new TodoContext();
+        Console.WriteLine(db.TodoItems.Count());
 

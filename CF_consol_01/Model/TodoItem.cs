@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 namespace CF_consol_01.Model
 {/// <summary>
 /// fontos hogy ez az osztály public legyen a láthatóság miatt
-/// mivel az CF- névkonvenció alapú ezért felismeri az ID-t
+/// mivel az CF- névkonvenció alapú ezért felismeri az ID-t 
+/// mivel leírtam a nevéhez hogy ő az ID ezért lett ő a Primery key
+/// mivel a típusa int ezért let ő Identity
+/// ha nem id akkor megadom a [key] kulcsszót a névre
 /// </summary>
     public class TodoItem
     {
