@@ -54,6 +54,10 @@ Alapvetően két megoldás:
 		- A migrációs lépések visszavonása: (A DB lenullázása)
 		  PM> Update-Database -TargetMigration 0
 
+		  - vissza is tudok menni az adott migrációs szintig:
+		    PM> Update-Database -TargetMigration '202103231628537_TodoItem table Closed Nullabel' 
+		    ''ide adom meg azt a nevet amire vissza akoarok állni
+
 4. 
 
 
