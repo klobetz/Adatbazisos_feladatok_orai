@@ -1,0 +1,17 @@
+﻿1. feladat:
+	[x]megtervezem az adatbázist ER-model segítségével
+	[x]projekt létrehozása
+	[x]könyvtárszerkezet kialakítása
+
+	[x]Táblák és kapcsolatok kialakítása
+		-publikus osztályok
+	[x]nugett csomag telepítése
+	[x]kapcsolat kialakítása kód és DB között
+
+	[x]migrációk
+		-be kell kapcsolni az adott projektbe a migrációt
+		-hozzá kell adnom a egy migrációt (hogy módosítottam a db-met)
+		-frissíteni az adatbázist
+	
+	[]db elérési útvonal
+	[]adatok feltötése

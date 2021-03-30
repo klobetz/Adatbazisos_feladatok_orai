@@ -16,6 +16,8 @@ namespace CF_consol_01
             Console.WriteLine(db.TodoItems.Count());
 
 
+
+
             Console.ReadLine();
         }
     }

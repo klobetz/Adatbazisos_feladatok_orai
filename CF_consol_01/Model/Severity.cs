@@ -4,5 +4,6 @@
     {//felveszönk két property-tt
         public int id { get; set; }
         public string Title { get; set; }
+       
     }
 }
