@@ -58,6 +58,11 @@ Alapvetően két megoldás:
 		    PM> Update-Database -TargetMigration '202103231628537_TodoItem table Closed Nullabel' 
 		    ''ide adom meg azt a nevet amire vissza akoarok állni
 
-4. 
+4. feladat:
+Adatok felvitele a DB-be
+
+
+5. feladat:
+Kapcsolat helye az adatbázisban
 
 

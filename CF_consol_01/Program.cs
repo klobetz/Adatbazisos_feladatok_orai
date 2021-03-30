@@ -18,6 +18,7 @@ namespace CF_consol_01
 
 
 
+
             Console.ReadLine();
         }
     }

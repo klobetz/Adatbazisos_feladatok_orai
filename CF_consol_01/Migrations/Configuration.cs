@@ -15,10 +15,13 @@
 
         protected override void Seed(CF_consol_01.Model.TodoContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            //context.Severities.Add(new Model.Severity { Title = "Fontos" }); //ebben az esetben mindig létrejön a rekord
+            //context.Severities.Add(new Model.Severity { Title = "Nem Fontos" });
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            //context.Severities.AddOrUpdate(new Model.Severity { id=5, Title = "Nem Fontos" }); //létrehozza vagy frissíti
+
+            context.Severities.AddOrUpdate(x=>x.Title, new Model.Severity { Title = "Fontos nagyom" }); //itt már figyeli a tilt attributumot és ha létezi akko nem írja bele
+            // context.Severities.AddOrUpdate(x => x.Title, new Model.Severity { Title = "Nem Fontos" });
         }
     }
 }

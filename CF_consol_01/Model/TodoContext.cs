@@ -18,6 +18,6 @@ namespace CF_consol_01.Model
         /// Erre lesz alkalmas a DbSet ami egy generikus (mint a lista) csak ez nem a memóriában tárol hanem a DB-be
         /// </summary>
         public DbSet<TodoItem> TodoItems { get; set; }
-        public DbSet<Severity> MyProperty { get; set; }
+        public DbSet<Severity> Severities { get; set; }
     }
 }
