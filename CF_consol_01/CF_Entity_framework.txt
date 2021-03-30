@@ -60,9 +60,19 @@ Alapvetően két megoldás:
 
 4. feladat:
 Adatok felvitele a DB-be
-
+	-Seed
+	-Program.cs
 
 5. feladat:
 Kapcsolat helye az adatbázisban
+
+	-app.config (connection string létrehozása)
+	<connectionStrings>		
+		<add name="DefaultConnection" connectionString="Server=(localdb)\MSSQLLocalDB;Database=ToDoItem01;Trusted_Connection=True;" providerName="System.Data.SqlClient"/> 
+	</connectionStrings>
+
+	-majd a Contextben:
+	public TodoContext() : base("name = DefaultConnection")
+        {}
 
 
