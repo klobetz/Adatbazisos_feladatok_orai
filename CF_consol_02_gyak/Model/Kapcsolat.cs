@@ -9,6 +9,9 @@ namespace CF_consol_02_gyak.Model
 {
     class Kapcsolat : DbContext
     {
+        public Kapcsolat() : base("name = AlapDBkapcsolat")
+        {}
+
         public DbSet<Auto> Autos { get; set; }
     }
 }

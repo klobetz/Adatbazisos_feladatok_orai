@@ -19,12 +19,12 @@ namespace CF_consol_02_gyak.Model
         public DateTime? Gyartas { get; set; }
 
         public Kolcsonzo Kolcsonzo { get; set; }
-        public int Kolcsonzo_id { get; set; }
+        public int Kolcsonzoid { get; set; }
 
         public Berlo Berlo { get; set; }
-        public int Berlo_id { get; set; }
+        public int Berloid { get; set; }
 
         public Tipus Tipus { get; set; }
-        public int Tipus_id { get; set; }
+        public int Tipusid { get; set; }
     }
 }

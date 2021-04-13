@@ -14,9 +14,6 @@ namespace CF_consol_02_gyak
             var db = new Kapcsolat();
             Console.WriteLine($"Mennyi rekord van az autok táblában: {db.Autos.Count()}");
 
-
-
-
             Console.ReadLine();
         }
     }

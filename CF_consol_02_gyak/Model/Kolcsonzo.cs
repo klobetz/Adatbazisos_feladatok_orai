@@ -6,6 +6,6 @@
         public string Nev { get; set; }
 
         public Tulajdonos Tulajdonos { get; set; }
-        public int Tulajdonos_id { get; set; }
+        public int Tulajdonosid { get; set; }
     }
 }
