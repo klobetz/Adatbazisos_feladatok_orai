@@ -14,7 +14,7 @@ namespace CF_consol_01.Model
     public class TodoContext : DbContext
     {
         public TodoContext() : base("name = DefaultConnection") //megnézi hogy van-e ilyen db connection kapcsolat ha van akkor az alapján hozza létre a db-t
-        {}
+        { }
         /// <summary>
         /// Össze kell kötni az adatookat reprezentáló osztályt az elérési osztállyal
         /// Erre lesz alkalmas a DbSet ami egy generikus (mint a lista) csak ez nem a memóriában tárol hanem a DB-be

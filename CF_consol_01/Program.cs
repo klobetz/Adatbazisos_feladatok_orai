@@ -28,15 +28,32 @@ namespace CF_consol_01
             //}
 
             //
-            Console.Write("Töltsd ki aSeverity tábla Title mezőjét: ");
-            //Házi feladat: elérni, hogy csak szöveget lehessen beletenni a title-be
+           
+           
 
 
-            //adat felvitele a severity táblába
+            //adat felvitele a severity táblába kézzel
+            //var title = new Severity();     //tábla pédányosítása
+            //title.Title = "ez egy új sor";  //mit adjak hozzá
+            //db.Severities.Add(title);       //hozzáadom
+            //db.SaveChanges();               //DB mentése
+
+            //adatok bekérése a felhasználótól:
+            Console.WriteLine("kérek egy adatot (Title)");
+            var valasz = Console.ReadLine();
+
+
+            while (int.TryParse(valasz, out int szam))
+            {
+                Console.WriteLine("rossz adat újra");
+                valasz = Console.ReadLine();
+            }
+
             var title = new Severity();     //tábla pédányosítása
-            title.Title = "ez egy új sor";  //mit adjak hozzá
+            title.Title = valasz;           //mit adjak hozzá
             db.Severities.Add(title);       //hozzáadom
             db.SaveChanges();               //DB mentése
+            Console.WriteLine("Köszönöm!");
 
 
             //kiíratás
