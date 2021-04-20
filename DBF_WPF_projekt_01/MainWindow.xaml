@@ -4,19 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBF_WPF_projekt_01"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         
         WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Background="#181735">
     
 
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
-            <RowDefinition Height="138*"/>
+            <RowDefinition Height="200*"/>
             <RowDefinition Height="210*"/>
             <RowDefinition Height="30*"/>
         </Grid.RowDefinitions>
@@ -81,6 +82,77 @@
             
 
         </Grid>
+
+        <Grid Grid.Row="1">
+            
+            <StackPanel Margin="10,0,0,0">
+                
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <fa:ImageAwesome Icon="AddressBookOutline"
+                                     Height="50" Foreground="Orange"/>
+
+                    <TextBlock Text="Adatok bevitele" Margin="10,0,0,0"
+                               FontSize="14" FontFamily="Fonts/#Dosis" Foreground="White"
+                               FontWeight="Medium" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Rendszám:" Width="80" Foreground="White"
+                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
+                               VerticalAlignment="Center"/>
+                    
+                    <TextBox x:Name="BoxRendszam" Width="200" Height="25" Margin="0,0,0,5"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Márka:" Width="80" Foreground="White"
+                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
+                               VerticalAlignment="Center"/>
+                    
+                    <TextBox x:Name="BoxMarka" Width="200" Height="25" Margin="0,0,0,5"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Típus:" Width="80" Foreground="White"
+                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
+                               VerticalAlignment="Center"/>
+                    
+                    <TextBox x:Name="Boxtipus" Width="200" Height="25" Margin="0,0,0,5"/>
+                </WrapPanel>
+                
+                <!--Hozzáad gomb létrehozása-->
+                <StackPanel Grid.Column="13" Orientation="Horizontal" Margin="220,5,0,0">
+                    <Button x:Name="HozzaadButton" Content="Hozzáad" Foreground="White" FontSize="14" FontWeight="Medium" Click="Bezar_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="Red"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Orange"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="80" Height="25" CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+        
+        
 
     </Grid>
 </Window>
