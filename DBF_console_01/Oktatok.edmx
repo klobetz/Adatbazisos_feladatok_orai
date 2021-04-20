@@ -5,16 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="OktatokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Tanar">
+        <EntityType Name="Tanars">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Nev" Type="varchar" MaxLength="50" />
           <Property Name="SzülAdat" Type="int" />
-          <Property Name="E-mail" Type="varchar" MaxLength="50" />
+          <Property Name="E_mail" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Tantargy">
+        <EntityType Name="Tantargies">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -23,23 +23,23 @@
           <Property Name="Tanarid" Type="int" />
         </EntityType>
         <Association Name="FK_Tantargy_Tanar">
-          <End Role="Tanar" Type="Self.Tanar" Multiplicity="0..1" />
-          <End Role="Tantargy" Type="Self.Tantargy" Multiplicity="*" />
+          <End Role="Tanars" Type="Self.Tanars" Multiplicity="0..1" />
+          <End Role="Tantargies" Type="Self.Tantargies" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Tanar">
+            <Principal Role="Tanars">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Tantargy">
+            <Dependent Role="Tantargies">
               <PropertyRef Name="Tanarid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="OktatokModelStoreContainer">
-          <EntitySet Name="Tanar" EntityType="Self.Tanar" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Tantargy" EntityType="Self.Tantargy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tanars" EntityType="Self.Tanars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tantargies" EntityType="Self.Tantargies" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Tantargy_Tanar" Association="Self.FK_Tantargy_Tanar">
-            <End Role="Tanar" EntitySet="Tanar" />
-            <End Role="Tantargy" EntitySet="Tantargy" />
+            <End Role="Tanars" EntitySet="Tanars" />
+            <End Role="Tantargies" EntitySet="Tantargies" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -89,30 +89,29 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OktatokModelStoreContainer" CdmEntityContainer="OktatokEntities">
-          <EntitySetMapping Name="Tanars">
-            <EntityTypeMapping TypeName="OktatokModel.Tanar">
-              <MappingFragment StoreEntitySet="Tanar">
-                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nev" ColumnName="Nev" />
-                <ScalarProperty Name="SzülAdat" ColumnName="SzülAdat" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tantargies">
-            <EntityTypeMapping TypeName="OktatokModel.Tantargy">
-              <MappingFragment StoreEntitySet="Tantargy">
-                <ScalarProperty Name="Tanarid" ColumnName="Tanarid" />
-                <ScalarProperty Name="Tantargyak" ColumnName="Tantargyak" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OktatokModelStoreContainer" CdmEntityContainer="OktatokEntities">
+    <EntitySetMapping Name="Tanars">
+      <EntityTypeMapping TypeName="IsTypeOf(OktatokModel.Tanar)">
+        <MappingFragment StoreEntitySet="Tanars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nev" ColumnName="Nev" />
+          <ScalarProperty Name="SzülAdat" ColumnName="SzülAdat" />
+          <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tantargies">
+      <EntityTypeMapping TypeName="IsTypeOf(OktatokModel.Tantargy)">
+        <MappingFragment StoreEntitySet="Tantargies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tantargyak" ColumnName="Tantargyak" />
+          <ScalarProperty Name="Tanarid" ColumnName="Tanarid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -126,7 +125,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

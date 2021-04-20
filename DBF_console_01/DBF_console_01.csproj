@@ -93,6 +93,7 @@
       <LastGenOutput>Oktatok.Context.cs</LastGenOutput>
       <DependentUpon>Oktatok.edmx</DependentUpon>
     </Content>
+    <Content Include="Oktatok.edmx.sql" />
     <Content Include="Oktatok.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Oktatok.edmx</DependentUpon>
