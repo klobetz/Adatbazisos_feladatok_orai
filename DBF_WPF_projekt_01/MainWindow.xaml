@@ -19,9 +19,10 @@
             <RowDefinition Height="30*"/>
             <RowDefinition Height="200*"/>
             <RowDefinition Height="210*"/>
-            <RowDefinition Height="30*"/>
+            <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
-
+        
+        <!--Fejrész kialakítása-->
         <Grid Background="#0f0f2d">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -82,7 +83,8 @@
             
 
         </Grid>
-
+        
+        <!--Adatok felvitele mezők létrehozása és a gomb-->
         <Grid Grid.Row="1">
             
             <StackPanel Margin="10,0,0,0">
@@ -126,12 +128,12 @@
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
-                                <Setter Property="Background" Value="Red"/>
+                                <Setter Property="Background" Value="Orange"/>
                                 <Setter Property="Cursor" Value="Hand"/>
 
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Orange"/>
+                                        <Setter Property="Background" Value="OrangeRed"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -152,6 +154,129 @@
             </StackPanel>
         </Grid>
         
+        <!--Datagrid és a mezők-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="527*"/>
+                <ColumnDefinition Width="310*"/>
+            </Grid.ColumnDefinitions>
+
+            <DataGrid x:Name="GridAutok" Margin="5,0,0,5"/>
+
+            <StackPanel Grid.Column="1" Margin="10,0,5,0">
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <fa:ImageAwesome Icon="PencilSquare"
+                                     Height="50" Foreground="Orange"/>
+
+                    <TextBlock Text="Adatok módosítsa" Margin="10,0,0,0"
+                               FontSize="14" FontFamily="Fonts/#Dosis" Foreground="White"
+                               FontWeight="Medium" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Rendszám:" Width="80" Foreground="White"
+                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox x:Name="BoxRendszamFriss" Width="200" Height="25" Margin="0,0,0,5"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Márka:" Width="80" Foreground="White"
+                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox x:Name="BoxMarkaFriss" Width="200" Height="25" Margin="0,0,0,5"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Típus:" Width="80" Foreground="White"
+                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox x:Name="BoxtipusFriss" Width="200" Height="25" Margin="0,0,0,5"/>
+                </WrapPanel>
+            </StackPanel>
+
+
+
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="6" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,0,0">
+                <Button x:Name="TorolButton" Content="Adatok törlése" Foreground="White" FontSize="14" FontWeight="Medium" Click="Bezar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="Red"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightPink"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="120" Height="25" CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Column="11" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,0,0">
+                <Button x:Name="FrissButton" Content="Adatok frissítése" Foreground="White" FontSize="14" FontWeight="Medium" Click="Bezar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#383660"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Orange"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="120" Height="25" CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+        </Grid>
         
 
     </Grid>
