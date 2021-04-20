@@ -1,0 +1,8 @@
+﻿Feladatok: Egy olyan alaklmazás készítése ami DB-t használ. Adatok felvitele, módosítása, törlése. Több tábla használatat adatok lekérdezése.
+
+1. feladat:
+Wpf ablak kinézetének a létrehozatala
+
+2. feladat:
+DB létrehozása Saját DB-be (AutoNyilvantato)
+ -Auto tábla: id, rendszám, márka, típus
