@@ -24,5 +24,10 @@ namespace DBF_WPF_projekt_01
         {
             InitializeComponent();
         }
+
+        private void Bezar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -5,10 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBF_WPF_projekt_01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    
-    
-    <Grid>
+        Title="MainWindow" Height="450" Width="800"
         
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="138*"/>
+            <RowDefinition Height="210*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#0f0f2d">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Kölcsönzés nyilvántartás" Grid.Column="1" Grid.ColumnSpan="3"
+                       Foreground="White" FontWeight="Medium" FontFamily="Fonts/#Dosis"
+                       VerticalAlignment="Center"/>
+
+            <TextBlock Text="Menü" Grid.Column="4" Grid.ColumnSpan="3"
+                       Foreground="LightGray" FontFamily="Fonts/#Dosis"
+                       VerticalAlignment="Center"/>
+
+            <TextBlock Text="Website" Grid.Column="5" Grid.ColumnSpan="3"
+                       Foreground="LightGray" FontFamily="Fonts/#Dosis"
+                       VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Column="13" Orientation="Horizontal">
+                <Button x:Name="Bezar" Content="Bezár" Foreground="White" FontSize="14" FontWeight="Medium" Click="Bezar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="Red"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Orange"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="50" Height="25" CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            
+
+        </Grid>
+
     </Grid>
 </Window>
