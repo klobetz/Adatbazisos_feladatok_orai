@@ -19,9 +19,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>            
             <RowDefinition Height="*"/>            
-        </Grid.RowDefinitions>
-        
-        <Frame x:Name="main" Grid.Row="1" Grid.RowSpan="2" NavigationUIVisibility="Hidden"/>
+        </Grid.RowDefinitions>       
+       
 
         <!--Fejrész kialakítása-->
         <Grid Background="#0f0f2d" Panel.ZIndex="1">
@@ -161,17 +160,15 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Frame x:Name="main" Grid.Row="1" Grid.RowSpan="2" NavigationUIVisibility="Hidden"/>
 
-            <!--minta elkészítése-->
-
-
+        <!--minta elkészítése-->
+        <Grid Grid.Row="1" Panel.ZIndex="-1">
             <Grid.RenderTransform>
                 <RotateTransform Angle="50"/>
             </Grid.RenderTransform>
 
-            <StackPanel Orientation="Horizontal" Margin="-353,-481,-493,520"
-                            Panel.ZIndex="-1">
+            <StackPanel Orientation="Horizontal" Margin="-353,-481,-493,520">
 
                 <StackPanel>
                     <Border Width="700" Height="35"
@@ -188,7 +185,6 @@
                                 Background="#3dddc2"
                                 CornerRadius="20"
                                 Margin="75,15,0,0"/>
-
                 </StackPanel>
 
                 <StackPanel>
@@ -210,7 +206,8 @@
             </StackPanel>
 
         </Grid>
-
+        
+        
 
     </Grid>   
 </Window>

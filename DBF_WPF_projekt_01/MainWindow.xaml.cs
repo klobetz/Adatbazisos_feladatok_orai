@@ -39,7 +39,7 @@ namespace DBF_WPF_projekt_01
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            main.Content = new Kolcsonzo();
+            main.Content = new Auto();
         }
 
         private void bt_autok_Click(object sender, RoutedEventArgs e)

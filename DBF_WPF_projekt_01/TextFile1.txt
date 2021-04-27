@@ -2,6 +2,11 @@
 
 1. feladat:
 Wpf ablak kinézetének a létrehozatala
+	-fejléc menü leírás
+	-adatfelviteli mezők
+	-gombok
+	-datagrid amiben az adataimat meg tudom jeleníteni
+	-adatmódosító mezők és gombok
 
 2. feladat:
 DB létrehozása Saját DB-be (AutoNyilvantato)

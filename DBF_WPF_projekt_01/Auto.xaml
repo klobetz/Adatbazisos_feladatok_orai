@@ -80,7 +80,6 @@
                         </Button.Template>
                     </Button>
                 </StackPanel>
-
             </StackPanel>
         
 
@@ -93,7 +92,7 @@
 
             <DataGrid x:Name="GridAutok" Margin="5,0,0,5"/>
 
-            <StackPanel Grid.Column="1" Margin="10,0,5,0" Panel.ZIndex="20">
+            <StackPanel Grid.Column="1" Margin="10,0,5,0">
 
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <fa:ImageAwesome Icon="PencilSquare"
