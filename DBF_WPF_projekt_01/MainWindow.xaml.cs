@@ -29,5 +29,27 @@ namespace DBF_WPF_projekt_01
         {
             this.Close();
         }
+
+        
+
+        private void bt_kolcsonzes_Click(object sender, RoutedEventArgs e)
+        {
+            main.Content = new Kolcsonzo();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            main.Content = new Kolcsonzo();
+        }
+
+        private void bt_autok_Click(object sender, RoutedEventArgs e)
+        {
+            main.Content = new Auto();
+        }
+
+        private void bt_berlo_Click(object sender, RoutedEventArgs e)
+        {
+            main.Content = new Berlo();
+        }
     }
 }

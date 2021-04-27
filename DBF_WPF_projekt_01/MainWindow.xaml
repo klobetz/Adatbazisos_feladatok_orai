@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         
+        Loaded="Window_Loaded"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" Background="#181735">
@@ -16,11 +17,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="200*"/>
-            <RowDefinition Height="210*"/>
-            <RowDefinition Height="35*"/>
+            <RowDefinition Height="30"/>            
+            <RowDefinition Height="*"/>            
         </Grid.RowDefinitions>
+        
+        <Frame x:Name="main" Grid.Row="1" Grid.RowSpan="2" NavigationUIVisibility="Hidden"/>
 
         <!--Fejrész kialakítása-->
         <Grid Background="#0f0f2d" Panel.ZIndex="1">
@@ -41,17 +42,95 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Kölcsönzés nyilvántartás" Grid.Column="1" Grid.ColumnSpan="3"
-                       Foreground="White" FontWeight="Medium" FontFamily="Fonts/#Dosis"
+            <TextBlock Text="Kölcsönzés nyilvántartás" Grid.ColumnSpan="3"
+                       Foreground="White" FontWeight="Medium" FontSize="16" FontFamily="Fonts/#Dosis"
                        VerticalAlignment="Center"/>
 
-            <TextBlock Text="Menü" Grid.Column="4" Grid.ColumnSpan="3"
-                       Foreground="LightGray" FontFamily="Fonts/#Dosis"
-                       VerticalAlignment="Center"/>
+            
+                <Button x:Name="bt_kolcsonzes" Grid.Column="4" Content="Kölcsönzés" Foreground="LightGray" Click="bt_kolcsonzes_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Cursor" Value="Hand"/>
 
-            <TextBlock Text="Website" Grid.Column="5" Grid.ColumnSpan="3"
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border 
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+            <Button x:Name="bt_autok" Grid.Column="5" Content="Auto" Foreground="LightGray" Click="bt_autok_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="bt_berlo" Grid.Column="6" Content="Bérlő" Foreground="LightGray" Click="bt_berlo_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
+            <TextBlock Text="Website" Grid.Column="8" Grid.ColumnSpan="3"
                        Foreground="LightGray" FontFamily="Fonts/#Dosis"
                        VerticalAlignment="Center"/>
+            
+            
 
             <StackPanel Grid.Column="13" Orientation="Horizontal">
                 <Button x:Name="Bezar" Content="Bezár" Foreground="White" FontSize="14" FontWeight="Medium" Click="Bezar_Click">
@@ -80,263 +159,58 @@
                     </Button.Template>
                 </Button>
             </StackPanel>
-
-
         </Grid>
 
-        <!--Adatok felvitele mezők létrehozása és a gomb-->
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="419*"/>
-                <ColumnDefinition Width="382*"/>
-            </Grid.ColumnDefinitions>
-            
+
             <!--minta elkészítése-->
 
-            <Grid Grid.Column="1">
-                <Grid.RenderTransform>
-                    <RotateTransform Angle="50"/>
-                </Grid.RenderTransform>
 
-                <StackPanel Orientation="Horizontal" Margin="-629,-161,-217,200"
+            <Grid.RenderTransform>
+                <RotateTransform Angle="50"/>
+            </Grid.RenderTransform>
+
+            <StackPanel Orientation="Horizontal" Margin="-353,-481,-493,520"
                             Panel.ZIndex="-1">
 
-                    <StackPanel>
-                        <Border Width="700" Height="35"
+                <StackPanel>
+                    <Border Width="700" Height="35"
                                 Background="#383660"
                                 CornerRadius="20"
                                 Margin="150,0,0,0"/>
 
-                        <Border Width="700" Height="35"
+                    <Border Width="700" Height="35"
                                 Background="Orange"
                                 CornerRadius="20"
                                 Margin="0,15,0,0"/>
 
-                        <Border Width="700" Height="35"
+                    <Border Width="700" Height="35"
                                 Background="#3dddc2"
                                 CornerRadius="20"
                                 Margin="75,15,0,0"/>
 
-                    </StackPanel>
+                </StackPanel>
 
-                    <StackPanel>
-                        <Border Width="700" Height="35"
+                <StackPanel>
+                    <Border Width="700" Height="35"
                                 Background="#383660"
                                 CornerRadius="20"
                                 Margin="150,0,0,0"/>
 
-                        <Border Width="700" Height="35"
+                    <Border Width="700" Height="35"
                                 Background="Orange"
                                 CornerRadius="20"
                                 Margin="0,15,0,0"/>
 
-                        <Border Width="700" Height="35"
+                    <Border Width="700" Height="35"
                                 Background="#3dddc2"
                                 CornerRadius="20"
                                 Margin="75,15,0,0"/>
-                    </StackPanel>
-
-
                 </StackPanel>
-                
-                
-            </Grid>
-
-
-
-
-
-            <StackPanel Margin="10,0,0,0" Grid.ColumnSpan="2">
-
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <fa:ImageAwesome Icon="AddressBookOutline"
-                                     Height="50" Foreground="Orange"/>
-
-                    <TextBlock Text="Adatok bevitele" Margin="10,0,0,0"
-                               FontSize="14" FontFamily="Fonts/#Dosis" Foreground="White"
-                               FontWeight="Medium" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <WrapPanel>
-                    <TextBlock Text="Rendszám:" Width="80" Foreground="White"
-                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
-                               VerticalAlignment="Center"/>
-
-                    <TextBox x:Name="BoxRendszam" Width="200" Height="25" Margin="0,0,0,5"/>
-                </WrapPanel>
-
-                <WrapPanel>
-                    <TextBlock Text="Márka:" Width="80" Foreground="White"
-                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
-                               VerticalAlignment="Center"/>
-
-                    <TextBox x:Name="BoxMarka" Width="200" Height="25" Margin="0,0,0,5"/>
-                </WrapPanel>
-
-                <WrapPanel>
-                    <TextBlock Text="Típus:" Width="80" Foreground="White"
-                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
-                               VerticalAlignment="Center"/>
-
-                    <TextBox x:Name="Boxtipus" Width="200" Height="25" Margin="0,0,0,5"/>
-                </WrapPanel>
-
-                <!--Hozzáad gomb létrehozása-->
-                <StackPanel Grid.Column="13" Orientation="Horizontal" Margin="220,5,0,0">
-                    <Button x:Name="HozzaadButton" Content="Hozzáad" Foreground="White" FontSize="14" FontWeight="Medium" Click="Bezar_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
-                                <Setter Property="Background" Value="Orange"/>
-                                <Setter Property="Cursor" Value="Hand"/>
-
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="OrangeRed"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="80" Height="25" CornerRadius="12"
-                                    Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </StackPanel>
-
-            </StackPanel>
-        </Grid>
-
-        <!--Datagrid és a mezők-->
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="527*"/>
-                <ColumnDefinition Width="310*"/>
-            </Grid.ColumnDefinitions>
-
-            <DataGrid x:Name="GridAutok" Margin="5,0,0,5"/>
-
-            <StackPanel Grid.Column="1" Margin="10,0,5,0">
-
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <fa:ImageAwesome Icon="PencilSquare"
-                                     Height="50" Foreground="Orange"/>
-
-                    <TextBlock Text="Adatok módosítsa" Margin="10,0,0,0"
-                               FontSize="14" FontFamily="Fonts/#Dosis" Foreground="White"
-                               FontWeight="Medium" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <WrapPanel>
-                    <TextBlock Text="Rendszám:" Width="80" Foreground="White"
-                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
-                               VerticalAlignment="Center"/>
-
-                    <TextBox x:Name="BoxRendszamFriss" Width="200" Height="25" Margin="0,0,0,5"/>
-                </WrapPanel>
-
-                <WrapPanel>
-                    <TextBlock Text="Márka:" Width="80" Foreground="White"
-                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
-                               VerticalAlignment="Center"/>
-
-                    <TextBox x:Name="BoxMarkaFriss" Width="200" Height="25" Margin="0,0,0,5"/>
-                </WrapPanel>
-
-                <WrapPanel>
-                    <TextBlock Text="Típus:" Width="80" Foreground="White"
-                               FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
-                               VerticalAlignment="Center"/>
-
-                    <TextBox x:Name="BoxtipusFriss" Width="200" Height="25" Margin="0,0,0,5"/>
-                </WrapPanel>
-            </StackPanel>
-
-
-
-        </Grid>
-
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="6" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,0,0">
-                <Button x:Name="TorolButton" Content="Adatok törlése" Foreground="White" FontSize="14" FontWeight="Medium" Click="Bezar_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
-                            <Setter Property="Background" Value="Red"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="LightPink"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="120" Height="25" CornerRadius="12"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-            </StackPanel>
-
-            <StackPanel Grid.Column="11" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,0,0">
-                <Button x:Name="FrissButton" Content="Adatok frissítése" Foreground="White" FontSize="14" FontWeight="Medium" Click="Bezar_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
-                            <Setter Property="Background" Value="#383660"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Orange"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="120" Height="25" CornerRadius="12"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
             </StackPanel>
 
         </Grid>
 
 
-    </Grid>
+    </Grid>   
 </Window>
