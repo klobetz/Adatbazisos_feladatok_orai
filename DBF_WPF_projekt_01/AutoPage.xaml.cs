@@ -33,10 +33,10 @@ namespace DBF_WPF_projekt_01
 
 
                 //az adott tábla bejárása debug ablakba kiírás
-                foreach (var item in auto)
-                {
-                    Console.WriteLine($"{item.Rendszam} \t{item.Marka} \t{item.Id}");
-                }
+                //foreach (var item in auto)
+                //{
+                //    Console.WriteLine($"{item.Rendszam} \t{item.Marka} \t{item.Id}");
+                //}
 
                 //csak az adott osztlop megjelenítése kiszelektálom LINQ-val
                 //var adottoszlop = from a in db.Auto
@@ -67,19 +67,37 @@ namespace DBF_WPF_projekt_01
 
                 //dg_auto.ItemsSource = feltetel.ToList();
 
-
-                //dg_auto.ItemsSource = auto.ToList();            //megjelenítem az összes adatot ami a táblában van
+                dg_auto.ItemsSource = auto.ToList();            //megjelenítem az összes adatot ami a táblában van
             }
-
-
-
-
-
-
         }
 
         private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
         {
+            using (var db = new AutoNyilvantartasDBEntities())
+            {
+                //var autoadat = db.Auto; //ez is használható
+
+                var adatfelvitel = new Auto()
+                {
+                    //megnézem hogy jó-e a mentés és belekerül-e az adat a táblámba
+                    //Rendszam = "ZTH-854",
+                    //Marka = "Lada",
+                    //Tipus = "Szamara"
+
+
+                    //a textbox adatát írja a DB-be
+                    Rendszam = tb_rendszam.Text,
+                    Marka = tb_marka.Text,
+                    Tipus = tb_tipus.Text
+                };
+                db.Auto.Add(adatfelvitel);
+                db.SaveChanges();
+                dg_auto.ItemsSource = db.Auto.ToList();
+            }
+
+            //van egy probléma nem marad meg az adat a DB-ben.
+            //Ennek az oka a DB (mdf állományom) property-e Copy always ra van állítva
+            //az állítsuk Copy if newer -re
 
         }
 

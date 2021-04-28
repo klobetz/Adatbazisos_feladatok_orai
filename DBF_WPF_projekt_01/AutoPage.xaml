@@ -34,7 +34,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                <TextBox x:Name="BoxRendszam" Width="200" Height="25" Margin="0,0,0,5"/>
+                <TextBox x:Name="tb_rendszam" Width="200" Height="25" Margin="0,0,0,5"/>
             </WrapPanel>
 
             <WrapPanel>
@@ -42,7 +42,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                <TextBox x:Name="BoxMarka" Width="200" Height="25" Margin="0,0,0,5"/>
+                <TextBox x:Name="tb_marka" Width="200" Height="25" Margin="0,0,0,5"/>
             </WrapPanel>
 
             <WrapPanel>
@@ -50,7 +50,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                <TextBox x:Name="Boxtipus" Width="200" Height="25" Margin="0,0,0,5"/>
+                <TextBox x:Name="tb_tipus" Width="200" Height="25" Margin="0,0,0,5"/>
             </WrapPanel>
 
             <!--Hozzáad gomb létrehozása-->
@@ -109,7 +109,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                    <TextBox x:Name="BoxRendszamFriss" Width="200" Height="25" Margin="0,0,0,5"/>
+                    <TextBox x:Name="tb_rendszamfriss" Width="200" Height="25" Margin="0,0,0,5"/>
                 </WrapPanel>
 
                 <WrapPanel>
@@ -117,7 +117,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                    <TextBox x:Name="BoxMarkaFriss" Width="200" Height="25" Margin="0,0,0,5"/>
+                    <TextBox x:Name="tb_markafriss" Width="200" Height="25" Margin="0,0,0,5"/>
                 </WrapPanel>
 
                 <WrapPanel>
@@ -125,7 +125,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                    <TextBox x:Name="BoxtipusFriss" Width="200" Height="25" Margin="0,0,0,5"/>
+                    <TextBox x:Name="tb_tipusfriss" Width="200" Height="25" Margin="0,0,0,5"/>
                 </WrapPanel>
             </StackPanel>
         </Grid>
