@@ -20,6 +20,8 @@ namespace DBF_WPF_projekt_01
     /// </summary>
     public partial class AutoPage : Page
     {
+        public int AutoazonID { get; private set; }
+
         public AutoPage()
         {
             InitializeComponent();
@@ -109,11 +111,33 @@ namespace DBF_WPF_projekt_01
                 tb_rendszamfriss.Text = adat.Rendszam;
                 tb_markafriss.Text = adat.Marka;
                 tb_tipusfriss.Text = adat.Tipus;
+
+                AutoazonID = adat.Id;
             }
         }
 
         private void btn_frissit_Click(object sender, RoutedEventArgs e)
         {
+           using (var db = new AutoNyilvantartasDBEntities())
+            {
+                var autoadat = db.Auto.Where(adat => adat.Id == AutoazonID);
+
+                //ezzel indítva
+                //foreach (var item in autoadat)
+                //{
+                //    MessageBox.Show(item.Rendszam);
+                //    item.Rendszam = "ABC-123";                    
+                //}
+
+                foreach (var item in autoadat)
+                {
+                    item.Rendszam = tb_rendszamfriss.Text;
+                    item.Marka = tb_markafriss.Text;
+                    item.Tipus = tb_tipusfriss.Text;
+                }
+                db.SaveChanges();
+                dg_auto.ItemsSource = db.Auto.ToList();
+            }
 
         }
 
