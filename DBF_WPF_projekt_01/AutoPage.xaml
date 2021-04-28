@@ -91,7 +91,7 @@
                 <ColumnDefinition Width="310*"/>
             </Grid.ColumnDefinitions>
 
-            <DataGrid x:Name="dg_auto" Margin="5,0,0,5"/>
+            <DataGrid x:Name="dg_auto" Margin="5,0,0,5" SelectionChanged="dg_auto_SelectionChanged"/>
 
             <StackPanel Grid.Column="1" Margin="10,0,5,0">
 

@@ -84,7 +84,6 @@ namespace DBF_WPF_projekt_01
                     //Marka = "Lada",
                     //Tipus = "Szamara"
 
-
                     //a textbox adatát írja a DB-be
                     Rendszam = tb_rendszam.Text,
                     Marka = tb_marka.Text,
@@ -98,6 +97,23 @@ namespace DBF_WPF_projekt_01
             //van egy probléma nem marad meg az adat a DB-ben.
             //Ennek az oka a DB (mdf állományom) property-e Copy always ra van állítva
             //az állítsuk Copy if newer -re
+        }
+
+        private void dg_auto_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Console.WriteLine(dg_auto.SelectedIndex); //ezzel megnézem a DataGridnek a kijelölésére az indexet
+
+            if (dg_auto.SelectedIndex >= 0)
+            {
+                var adat = (Auto)dg_auto.SelectedItem;
+                tb_rendszamfriss.Text = adat.Rendszam;
+                tb_markafriss.Text = adat.Marka;
+                tb_tipusfriss.Text = adat.Tipus;
+            }
+        }
+
+        private void btn_frissit_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
@@ -106,10 +122,7 @@ namespace DBF_WPF_projekt_01
 
         }
 
-        private void btn_frissit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         
     }
