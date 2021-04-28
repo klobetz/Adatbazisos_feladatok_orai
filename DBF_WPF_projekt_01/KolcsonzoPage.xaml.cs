@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DBF_WPF_projekt_01
 {
     /// <summary>
-    /// Interaction logic for Berlo.xaml
+    /// Interaction logic for KolcsonzoPage.xaml
     /// </summary>
-    public partial class Berlo : Page
+    public partial class KolcsonzoPage : Page
     {
-        public Berlo()
+        public KolcsonzoPage()
         {
             InitializeComponent();
         }

@@ -58,15 +58,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Auto.xaml">
+    <Page Include="AutoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Berlo.xaml">
+    <Page Include="BerloPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Kolcsonzo.xaml">
+    <Page Include="KolcsonzoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,14 +78,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Auto.xaml.cs">
-      <DependentUpon>Auto.xaml</DependentUpon>
+    <Compile Include="AutoPage.xaml.cs">
+      <DependentUpon>AutoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Berlo.xaml.cs">
-      <DependentUpon>Berlo.xaml</DependentUpon>
+    <Compile Include="BerloPage.xaml.cs">
+      <DependentUpon>BerloPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Kolcsonzo.xaml.cs">
-      <DependentUpon>Kolcsonzo.xaml</DependentUpon>
+    <Compile Include="KolcsonzoPage.xaml.cs">
+      <DependentUpon>KolcsonzoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

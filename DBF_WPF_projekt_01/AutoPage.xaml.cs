@@ -16,26 +16,26 @@ using System.Windows.Shapes;
 namespace DBF_WPF_projekt_01
 {
     /// <summary>
-    /// Interaction logic for Auto.xaml
+    /// Interaction logic for AutoPage.xaml
     /// </summary>
-    public partial class Auto : Page
+    public partial class AutoPage : Page
     {
-        public Auto()
+        public AutoPage()
         {
             InitializeComponent();
         }
 
-        private void HozzaadButton_Click(object sender, RoutedEventArgs e)
+        private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void FrissButton_Click(object sender, RoutedEventArgs e)
+        private void btn_torol_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void TorolButton_Click(object sender, RoutedEventArgs e)
+        private void btn_frissit_Click(object sender, RoutedEventArgs e)
         {
 
         }
