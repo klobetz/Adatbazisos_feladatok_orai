@@ -160,7 +160,7 @@
             </StackPanel>
         </Grid>
 
-        <Frame x:Name="main" Grid.Row="1" Grid.RowSpan="2" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="Main" Grid.Row="1" Grid.RowSpan="2" NavigationUIVisibility="Hidden"/>
 
         <!--minta elkészítése-->
         <Grid Grid.Row="1" Panel.ZIndex="-1">

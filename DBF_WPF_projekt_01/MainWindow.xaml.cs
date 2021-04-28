@@ -32,22 +32,22 @@ namespace DBF_WPF_projekt_01
 
         private void bt_kolcsonzes_Click(object sender, RoutedEventArgs e)
         {
-            main.Content = new KolcsonzoPage();
+            Main.Content = new KolcsonzoPage();
         }
 
         private void bt_autok_Click(object sender, RoutedEventArgs e)
         {
-            main.Content = new AutoPage();
+            Main.Content = new AutoPage();
         }
 
         private void bt_berlo_Click(object sender, RoutedEventArgs e)
         {
-            main.Content = new BerloPage();
+            Main.Content = new BerloPage();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            main.Content = new AutoPage();
+            Main.Content = new AutoPage();
         }
     }
 }

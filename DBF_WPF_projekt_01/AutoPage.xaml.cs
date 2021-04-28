@@ -25,6 +25,59 @@ namespace DBF_WPF_projekt_01
             InitializeComponent();
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new AutoNyilvantartasDBEntities())  //példányosítom a kapcsolatot, hogy elérjem a tábláimat
+            {
+                var auto = db.Auto;                             //beleteszem egy változóba a táblámat amiből az adatokat megjelenítem a DataGrid-be
+
+
+                //az adott tábla bejárása debug ablakba kiírás
+                foreach (var item in auto)
+                {
+                    Console.WriteLine($"{item.Rendszam} \t{item.Marka} \t{item.Id}");
+                }
+
+                //csak az adott osztlop megjelenítése kiszelektálom LINQ-val
+                //var adottoszlop = from a in db.Auto
+                //                  select new
+                //                  {
+                //                      Rendszám = a.Rendszam,
+                //                      Márka = a.Marka
+                //                  };
+
+                //ugyan az egy kicsit rövidebben lamdával
+                //var adottoszlop = auto.Select(a=>new {Rendszám = a.Rendszam, Típus = a.Tipus}); 
+                //dg_auto.ItemsSource = adottoszlop.ToList();
+
+
+                //az adott feltételnek megfelelő adatot adja vissza
+                //var feltetel = from b in db.Auto
+                //               where b.Marka.Equals("opel")
+                //               select b;
+
+                //var feltetel = auto.Where(a=>a.Marka.Equals("Opel"));
+
+                //az G-el kezdődő rendszámok kiíratása
+                //var feltetel = from c in auto
+                //               where c.Rendszam.StartsWith("g")
+                //               select c;
+
+                //var feltetel = auto.Where(a => a.Rendszam.StartsWith("g"));
+
+                //dg_auto.ItemsSource = feltetel.ToList();
+
+
+                //dg_auto.ItemsSource = auto.ToList();            //megjelenítem az összes adatot ami a táblában van
+            }
+
+
+
+
+
+
+        }
+
         private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
         {
 
@@ -39,5 +92,7 @@ namespace DBF_WPF_projekt_01
         {
 
         }
+
+        
     }
 }
