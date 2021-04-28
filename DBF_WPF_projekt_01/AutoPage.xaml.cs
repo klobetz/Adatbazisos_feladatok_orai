@@ -118,7 +118,7 @@ namespace DBF_WPF_projekt_01
 
         private void btn_frissit_Click(object sender, RoutedEventArgs e)
         {
-           using (var db = new AutoNyilvantartasDBEntities())
+            using (var db = new AutoNyilvantartasDBEntities())
             {
                 var autoadat = db.Auto.Where(adat => adat.Id == AutoazonID);
 
@@ -143,7 +143,24 @@ namespace DBF_WPF_projekt_01
 
         private void btn_torol_Click(object sender, RoutedEventArgs e)
         {
+            var uzenet = MessageBox.Show("Biztos, hogy törölsz?", "Törlési üzenet",
+                                        MessageBoxButton.YesNo,
+                                        MessageBoxImage.Warning,
+                                        MessageBoxResult.Yes);
+            if (uzenet == MessageBoxResult.Yes)
+            {
+                using (var db = new AutoNyilvantartasDBEntities())
+                {
 
+                    var autoadat = db.Auto.Where(a => a.Id == AutoazonID);
+                    db.Auto.RemoveRange(autoadat);
+                    db.SaveChanges();
+
+                    dg_auto.ItemsSource = db.Auto.ToList();
+                }
+            }
+            
+           
         }
 
         
