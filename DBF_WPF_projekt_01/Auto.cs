@@ -18,5 +18,10 @@ namespace DBF_WPF_projekt_01
         public string Rendszam { get; set; }
         public string Marka { get; set; }
         public string Tipus { get; set; }
+
+        public override string ToString()
+        {
+            return $"Rendszám: {Rendszam} Márka: {Marka}  Típus: {Tipus}";
+        }
     }
 }

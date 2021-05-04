@@ -25,6 +25,8 @@ namespace DBF_WPF_projekt_01
         public AutoPage()
         {
             InitializeComponent();
+
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -69,6 +71,8 @@ namespace DBF_WPF_projekt_01
 
                 //dg_auto.ItemsSource = feltetel.ToList();
 
+             
+
                 dg_auto.ItemsSource = auto.ToList();            //megjelenítem az összes adatot ami a táblában van
             }
         }
@@ -78,22 +82,30 @@ namespace DBF_WPF_projekt_01
             using (var db = new AutoNyilvantartasDBEntities())
             {
                 //var autoadat = db.Auto; //ez is használható
-
-                var adatfelvitel = new Auto()
+                if (tb_rendszam.Text.Length != 0)
                 {
-                    //megnézem hogy jó-e a mentés és belekerül-e az adat a táblámba
-                    //Rendszam = "ZTH-854",
-                    //Marka = "Lada",
-                    //Tipus = "Szamara"
+                    var adatfelvitel = new Auto()
+                    {
+                        //megnézem hogy jó-e a mentés és belekerül-e az adat a táblámba
+                        //Rendszam = "ZTH-854",
+                        //Marka = "Lada",
+                        //Tipus = "Szamara"
 
-                    //a textbox adatát írja a DB-be
-                    Rendszam = tb_rendszam.Text,
-                    Marka = tb_marka.Text,
-                    Tipus = tb_tipus.Text
-                };
-                db.Auto.Add(adatfelvitel);
-                db.SaveChanges();
-                dg_auto.ItemsSource = db.Auto.ToList();
+                        //a textbox adatát írja a DB-be
+                        Rendszam = tb_rendszam.Text,
+                        Marka = tb_marka.Text,
+                        Tipus = tb_tipus.Text
+                    };
+                    db.Auto.Add(adatfelvitel);
+                    db.SaveChanges();
+                    Mezotorol();
+                    dg_auto.ItemsSource = db.Auto.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("A rendszám kitöltése kötelező!");
+                }
+
             }
 
             //van egy probléma nem marad meg az adat a DB-ben.
@@ -104,10 +116,14 @@ namespace DBF_WPF_projekt_01
         private void dg_auto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Console.WriteLine(dg_auto.SelectedIndex); //ezzel megnézem a DataGridnek a kijelölésére az indexet
+            //Console.WriteLine(dg_auto.SelectedItem); //megnézem a propertyt ehez fellülírom az auto-ban deffiniálom az item-et és megjelenítem a konkrét adatot
 
-            if (dg_auto.SelectedIndex >= 0)
+
+            //if (dg_auto.SelectedIndex >= 0)
+            if(dg_auto.SelectedItem !=null) 
             {
-                var adat = (Auto)dg_auto.SelectedItem;
+                //var adat = (Auto)dg_auto.SelectedItem; //kasztolok
+                var adat = dg_auto.SelectedItem as Auto; //parancsból kasztolok
                 tb_rendszamfriss.Text = adat.Rendszam;
                 tb_markafriss.Text = adat.Marka;
                 tb_tipusfriss.Text = adat.Tipus;
@@ -120,7 +136,8 @@ namespace DBF_WPF_projekt_01
         {
             using (var db = new AutoNyilvantartasDBEntities())
             {
-                var autoadat = db.Auto.Where(adat => adat.Id == AutoazonID);
+                //1.megoldás
+                //var autoadat = db.Auto.Where(adat => adat.Id == AutoazonID);
 
                 //ezzel indítva
                 //foreach (var item in autoadat)
@@ -129,14 +146,42 @@ namespace DBF_WPF_projekt_01
                 //    item.Rendszam = "ABC-123";                    
                 //}
 
-                foreach (var item in autoadat)
+                //foreach (var item in autoadat)
+                //{
+                //    item.Rendszam = tb_rendszamfriss.Text;
+                //    item.Marka = tb_markafriss.Text;
+                //    item.Tipus = tb_tipusfriss.Text;
+                //}
+
+                //2.megoldás
+                //var autoadat = db.Auto.Where(adat => adat.Id == AutoazonID).SingleOrDefault();
+
+                //3. megoldás
+                //var autoadat = db.Auto.SingleOrDefault(adat => adat.Id == AutoazonID);
+
+                //4. megoldás
+                if (!dg_auto.SelectedIndex.Equals(-1))
                 {
-                    item.Rendszam = tb_rendszamfriss.Text;
-                    item.Marka = tb_markafriss.Text;
-                    item.Tipus = tb_tipusfriss.Text;
+                    var autoadat = db.Auto.FirstOrDefault(adat => adat.Id == AutoazonID);
+
+                    if (autoadat != null)
+                    {
+                        autoadat.Rendszam = tb_rendszamfriss.Text;
+                        autoadat.Marka = tb_markafriss.Text;
+                        autoadat.Tipus = tb_tipusfriss.Text;
+                    }
+
+                    db.SaveChanges();
+
+                    Mezotorol();
+                    dg_auto.ItemsSource = db.Auto.ToList();
                 }
-                db.SaveChanges();
-                dg_auto.ItemsSource = db.Auto.ToList();
+                else
+                {
+                    MessageBox.Show("Nincs amit frissitsek!");
+                }
+
+                
             }
 
         }
@@ -158,11 +203,19 @@ namespace DBF_WPF_projekt_01
 
                     dg_auto.ItemsSource = db.Auto.ToList();
                 }
-            }
-            
-           
+            }          
         }
 
+        private void Mezotorol()
+        {
+            tb_rendszamfriss.Text = null;
+            tb_markafriss.Text = null;
+            tb_tipusfriss.Text = null;
+
+            tb_rendszam.Text = null;
+            tb_marka.Text = null;
+            tb_tipus.Text = null;
+        }
         
 
         
