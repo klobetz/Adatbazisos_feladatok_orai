@@ -1,0 +1,17 @@
+﻿1. feladat
+ - kinézet azaz grafikus felület
+	-textbox
+	-gomb
+	-datagrid (ahol megjelenítem az adatokat)
+
+2. feladat
+	- db létrehozása tábla kialakítása (.mdf)
+	- tábla létrehozása attribútumok: név, lakhely (város), végzetség, nem
+	- teszt adat létrehozása
+
+3. feladat
+	- kapcsolat Entity framework
+
+4. feladat
+	- működésre bírása gomb vezérlése
+	- korlátozások

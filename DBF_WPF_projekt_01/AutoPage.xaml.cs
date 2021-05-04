@@ -215,9 +215,6 @@ namespace DBF_WPF_projekt_01
             tb_rendszam.Text = null;
             tb_marka.Text = null;
             tb_tipus.Text = null;
-        }
-        
-
-        
+        }        
     }
 }
