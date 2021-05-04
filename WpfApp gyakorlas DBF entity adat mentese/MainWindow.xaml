@@ -5,8 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_gyakorlas_DBF_entity_adat_mentese"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="Aquamarine">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="187*"/>
+            <RowDefinition Height="232*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <StackPanel Margin="5">
+                <WrapPanel>
+                    <TextBlock Text="Név:" Width="100"/>
+                    <TextBox x:Name="tb_nev" Width="150" Margin="0,0,0,5"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Lakhely:" Width="100"/>
+                    <TextBox x:Name="tb_lakhely" Width="150" Margin="0,0,0,5"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Végzetség:" Width="100"/>
+                    <TextBox x:Name="tb_vegzetseg" Width="150" Margin="0,0,0,5"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Nem:" Width="100"/>
+                    <TextBox x:Name="tb_nem" Width="150" Margin="0,0,0,5"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Button x:Name="btn_add" Content="Add" Width="50" Margin="190,5,0,0"/>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <DataGrid x:Name="dg_adat" Margin="5,0,200,5"/>
+        </Grid>
+
+
+
     </Grid>
 </Window>
