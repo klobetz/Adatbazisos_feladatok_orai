@@ -24,5 +24,31 @@ namespace WpfApp_gyakorlas_DBF_entity_adat_mentese
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new TanarokDBEntities())
+            {
+                dg_adat.ItemsSource = db.Tanar.ToList();
+            }
+        }
+
+        private void btn_add_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new TanarokDBEntities())
+            {
+                var tanaradat = new Tanar()
+                {
+                    Nev = tb_nev.Text,
+                    Varos = tb_lakhely.Text,
+                    Vegzetseg = tb_vegzetseg.Text,
+                    Neme = tb_nem.Text,                    
+                };
+
+                db.Tanar.Add(tanaradat);
+                db.SaveChanges();
+                dg_adat.ItemsSource = db.Tanar.ToList();
+            }
+        }
     }
 }
