@@ -11,3 +11,12 @@ Wpf ablak kinézetének a létrehozatala
 2. feladat:
 DB létrehozása Saját DB-be (AutoNyilvantato)
  -Auto tábla: id, rendszám, márka, típus
+
+
+3. feladat:
+DB és a grafikus képernyő átalakítása
+	-db-be: két új attribútum: szín (pl: barna), és az évjárat (pl: 2015 ) felvétele
+	-a grafikus megjelenítés kiegészítése
+
+4. feladat:
+

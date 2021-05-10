@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DBF_WPF_projekt_01"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="550" Width="850"
         
         Loaded="Window_Loaded"
         WindowStyle="None"
