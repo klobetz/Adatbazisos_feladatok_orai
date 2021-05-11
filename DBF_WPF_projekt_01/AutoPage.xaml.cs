@@ -82,6 +82,8 @@ namespace DBF_WPF_projekt_01
             using (var db = new AutoNyilvantartasDBEntities())
             {
                 //var autoadat = db.Auto; //ez is használható
+
+
                 if (tb_rendszam.Text.Length != 0)
                 {
                     var adatfelvitel = new Auto()
@@ -94,7 +96,9 @@ namespace DBF_WPF_projekt_01
                         //a textbox adatát írja a DB-be
                         Rendszam = tb_rendszam.Text,
                         Marka = tb_marka.Text,
-                        Tipus = tb_tipus.Text
+                        Tipus = tb_tipus.Text,
+                        Szin = tb_szin.Text,
+                        Evjarat = string.IsNullOrWhiteSpace(tb_evjarat.Text) ? DateTime.Now.Year : Convert.ToInt32(tb_evjarat.Text)
                     };
                     db.Auto.Add(adatfelvitel);
                     db.SaveChanges();
@@ -127,6 +131,8 @@ namespace DBF_WPF_projekt_01
                 tb_rendszamfriss.Text = adat.Rendszam;
                 tb_markafriss.Text = adat.Marka;
                 tb_tipusfriss.Text = adat.Tipus;
+                tb_szinfriss.Text = adat.Szin;
+                tb_evjaratfriss.Text = Convert.ToString(adat.Evjarat);
 
                 AutoazonID = adat.Id;
             }
@@ -169,6 +175,8 @@ namespace DBF_WPF_projekt_01
                         autoadat.Rendszam = tb_rendszamfriss.Text;
                         autoadat.Marka = tb_markafriss.Text;
                         autoadat.Tipus = tb_tipusfriss.Text;
+                        autoadat.Szin = tb_szinfriss.Text;
+                        autoadat.Evjarat = Convert.ToInt32(tb_evjaratfriss.Text);
                     }
 
                     db.SaveChanges();
@@ -211,10 +219,14 @@ namespace DBF_WPF_projekt_01
             tb_rendszamfriss.Text = null;
             tb_markafriss.Text = null;
             tb_tipusfriss.Text = null;
+            tb_szinfriss.Text = null;
+            tb_evjaratfriss.Text = null;
 
             tb_rendszam.Text = null;
             tb_marka.Text = null;
             tb_tipus.Text = null;
+            tb_szin.Text = null;
+            tb_evjarat.Text = null;
         }        
     }
 }

@@ -43,6 +43,7 @@
                                VerticalAlignment="Center"/>
 
                 <TextBox x:Name="tb_marka" Width="200" Height="25" Margin="0,0,0,5" MaxLength="30"/>
+                
             </WrapPanel>
 
             <WrapPanel>
