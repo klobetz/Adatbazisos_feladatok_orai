@@ -21,3 +21,5 @@ DB és a grafikus képernyő átalakítása
 4. feladat:
 	-igazítuk hozzá a kódunkat is!
 
+
+

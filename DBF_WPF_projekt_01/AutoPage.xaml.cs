@@ -83,33 +83,55 @@ namespace DBF_WPF_projekt_01
             {
                 //var autoadat = db.Auto; //ez is használható
 
+                //if (tb_rendszam.Text.Length != 0 | tb_evjarat.Text.Length !=0)
+                //{
+                //    var adatfelvitel = new Auto()
+                //    {
+                //        //megnézem hogy jó-e a mentés és belekerül-e az adat a táblámba
+                //        //Rendszam = "ZTH-854",
+                //        //Marka = "Lada",
+                //        //Tipus = "Szamara"
 
-                if (tb_rendszam.Text.Length != 0)
+                //        //a textbox adatát írja a DB-be
+                //        Rendszam = tb_rendszam.Text,
+                //        Marka = tb_marka.Text,
+                //        Tipus = tb_tipus.Text,
+                //        Szin = tb_szin.Text,
+                //        //Evjarat = string.IsNullOrWhiteSpace(tb_evjarat.Text) ? DateTime.Now.Year : Convert.ToInt32(tb_evjarat.Text)
+                //        Evjarat = Convert.ToInt32(tb_evjarat.Text)
+                //    };
+                //    db.Auto.Add(adatfelvitel);
+                //    db.SaveChanges();
+                //    Mezotorol();
+                //    dg_auto.ItemsSource = db.Auto.ToList();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("A rendszám és az évjárat kitöltése kötelező!");
+                //}
+
+                //máshogy
+                var adatfelvitel = new Auto();               
+                
+                if (tb_rendszam.Text.Length == 0 || !int.TryParse(tb_evjarat.Text, out int szam))
                 {
-                    var adatfelvitel = new Auto()
-                    {
-                        //megnézem hogy jó-e a mentés és belekerül-e az adat a táblámba
-                        //Rendszam = "ZTH-854",
-                        //Marka = "Lada",
-                        //Tipus = "Szamara"
+                    var hibauzenet = MessageBox.Show("A rendszám és az évjárat mező kitöltése kötelező!\n a mezőbe csak számot írhatsz", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                        //a textbox adatát írja a DB-be
-                        Rendszam = tb_rendszam.Text,
-                        Marka = tb_marka.Text,
-                        Tipus = tb_tipus.Text,
-                        Szin = tb_szin.Text,
-                        Evjarat = string.IsNullOrWhiteSpace(tb_evjarat.Text) ? DateTime.Now.Year : Convert.ToInt32(tb_evjarat.Text)
-                    };
-                    db.Auto.Add(adatfelvitel);
-                    db.SaveChanges();
-                    Mezotorol();
-                    dg_auto.ItemsSource = db.Auto.ToList();
+                    tb_evjarat.Clear();
+                    tb_rendszam.Clear();
+                    tb_rendszam.Focus();
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("A rendszám kitöltése kötelező!");
-                }
+                adatfelvitel.Rendszam = tb_rendszam.Text;
+                adatfelvitel.Evjarat = Convert.ToInt32(tb_evjarat.Text);
+                adatfelvitel.Marka = tb_marka.Text;
+                adatfelvitel.Tipus = tb_tipus.Text;
+                adatfelvitel.Szin = tb_szin.Text;
 
+                db.Auto.Add(adatfelvitel);
+                db.SaveChanges();
+                Mezotorol();
+                dg_auto.ItemsSource = db.Auto.ToList();
             }
 
             //van egy probléma nem marad meg az adat a DB-ben.
