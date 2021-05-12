@@ -5,7 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="51b7804f5495468f93276459f6bd3579" Name="Diagram1" DisplayType="true">
-        <EntityTypeShape EntityType="AutoNyilvantartasDBModel.Auto" Width="1.5" PointX="3.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoNyilvantartasDBModel.Auto" Width="1.5" PointX="1.125" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoNyilvantartasDBModel.Berlo" Width="1.5" PointX="6.25" PointY="1.875" />
+        <EntityTypeShape EntityType="AutoNyilvantartasDBModel.Kolcsonzo" Width="1.5" PointX="3.75" PointY="0.625" />
+        <AssociationConnector Association="AutoNyilvantartasDBModel.FK_Kolcsonzo_Auto" />
+        <AssociationConnector Association="AutoNyilvantartasDBModel.FK_Kolcsonzo_Berlo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

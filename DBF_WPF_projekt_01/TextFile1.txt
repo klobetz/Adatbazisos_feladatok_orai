@@ -21,5 +21,13 @@ DB és a grafikus képernyő átalakítása
 4. feladat:
 	-igazítuk hozzá a kódunkat is!
 
+5. feladat:
+	- hozzunk létre két új táblát! (Kolcsonzo, Berlo)
+	kolcsonzo: id,nev,cim,auto_id,berlo_id
+	berlo: id,nev,cim,nem
+
+6. feladat:
+	frissítsük a modelt és legyen a kölcsönzö page az alapértelmezetten megjelenő képernyő
+	-készítsünk erre adatbeviteli mezőt és amiben meg tudjuk jeleníteni az adatokat.
 
 

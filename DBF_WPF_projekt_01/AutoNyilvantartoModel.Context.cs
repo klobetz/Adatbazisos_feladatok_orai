@@ -26,5 +26,7 @@ namespace DBF_WPF_projekt_01
         }
     
         public virtual DbSet<Auto> Auto { get; set; }
+        public virtual DbSet<Berlo> Berlo { get; set; }
+        public virtual DbSet<Kolcsonzo> Kolcsonzo { get; set; }
     }
 }

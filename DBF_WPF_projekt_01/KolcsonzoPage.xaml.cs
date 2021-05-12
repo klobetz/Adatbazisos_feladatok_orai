@@ -24,5 +24,25 @@ namespace DBF_WPF_projekt_01
         {
             InitializeComponent();
         }
+
+        private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_autoadd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_berloadd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dg_kolcsonzo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

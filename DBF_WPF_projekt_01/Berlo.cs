@@ -12,20 +12,18 @@ namespace DBF_WPF_projekt_01
     using System;
     using System.Collections.Generic;
     
-    public partial class Auto
+    public partial class Berlo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Auto()
+        public Berlo()
         {
             this.Kolcsonzo = new HashSet<Kolcsonzo>();
         }
     
         public int Id { get; set; }
-        public string Rendszam { get; set; }
-        public string Marka { get; set; }
-        public string Tipus { get; set; }
-        public string Szin { get; set; }
-        public Nullable<int> Evjarat { get; set; }
+        public string Nev { get; set; }
+        public string Cim { get; set; }
+        public string Nem { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kolcsonzo> Kolcsonzo { get; set; }
