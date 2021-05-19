@@ -24,5 +24,26 @@ namespace DBF_WPF_projekt_01
         {
             InitializeComponent();
         }
+
+        private void btn_frissit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_torol_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
+        private void dg_berlo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

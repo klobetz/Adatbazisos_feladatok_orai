@@ -24,7 +24,23 @@ namespace DBF_WPF_projekt_01
         {
             InitializeComponent();
         }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new AutoNyilvantartasDBEntities())
+            {
+                var autok = db.Auto;
+                var kolsonzok = db.Kolcsonzo;
+                var berlo = db.Berlo;
 
+                cb_automarka.ItemsSource = autok.ToList();
+                cb_rendszam.ItemsSource = autok.ToList();
+                cb_berlo.ItemsSource = berlo.ToList();                
+                
+
+                dg_kolcsonzo.ItemsSource = kolsonzok.ToList();
+            }
+
+        }
         private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
         {
 
@@ -32,17 +48,21 @@ namespace DBF_WPF_projekt_01
 
         private void btn_autoadd_Click(object sender, RoutedEventArgs e)
         {
+            
+            NavigationService.Navigate(new AutoPage());
 
         }
 
         private void btn_berloadd_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new BerloPage());
         }
 
         private void dg_kolcsonzo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        
     }
 }
