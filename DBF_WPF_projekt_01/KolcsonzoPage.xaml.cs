@@ -48,8 +48,10 @@ namespace DBF_WPF_projekt_01
 
         private void btn_autoadd_Click(object sender, RoutedEventArgs e)
         {
-            
+
             NavigationService.Navigate(new AutoPage());
+            //this.NavigationService.Navigate(new Uri("AutoPage.xaml", UriKind.Relative));
+           
 
         }
 
