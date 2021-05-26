@@ -188,10 +188,19 @@ namespace DBF_WPF_projekt_01
                 //var autoadat = db.Auto.SingleOrDefault(adat => adat.Id == AutoazonID);
 
                 //4. megoldás
-                if (!dg_auto.SelectedIndex.Equals(-1))
+                if (!dg_auto.SelectedIndex.Equals(-1)  )
                 {
                     var autoadat = db.Auto.FirstOrDefault(adat => adat.Id == AutoazonID);
 
+                    if (tb_rendszamfriss.Text.Length == 0 || !int.TryParse(tb_evjaratfriss.Text, out int szam))
+                    {
+                        var hibauzenet = MessageBox.Show("A rendszám és az évjárat mező kitöltése kötelező!\n a mezőbe csak számot írhatsz", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                        tb_evjaratfriss.Clear();
+                        tb_rendszamfriss.Clear();
+                        tb_rendszamfriss.Focus();
+                        return;
+                    }
                     if (autoadat != null)
                     {
                         autoadat.Rendszam = tb_rendszamfriss.Text;
@@ -200,6 +209,7 @@ namespace DBF_WPF_projekt_01
                         autoadat.Szin = tb_szinfriss.Text;
                         autoadat.Evjarat = Convert.ToInt32(tb_evjaratfriss.Text);
                     }
+                    
 
                     db.SaveChanges();
 
