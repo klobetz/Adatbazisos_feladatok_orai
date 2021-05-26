@@ -33,7 +33,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                <TextBox x:Name="tb_knev" Width="200" Height="25" Margin="0,0,0,5" MaxLength="7"/>
+                <TextBox x:Name="tb_knev" Width="200" Height="25" Margin="0,0,0,5" MaxLength="50"/>
             </WrapPanel>
 
             <WrapPanel>
@@ -41,10 +41,10 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                <TextBox x:Name="tb_kcim" Width="200" Height="25" Margin="0,0,0,5" MaxLength="30"/>
+                <TextBox x:Name="tb_kcim" Width="200" Height="25" Margin="0,0,0,5" MaxLength="50"/>
 
             </WrapPanel>
-
+            <!--
             <WrapPanel>
                 <TextBlock Text="Rendszám:" Width="100" Foreground="White"
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
@@ -55,6 +55,7 @@
                           SelectedValuePath="Id"/>
 
             </WrapPanel>
+            -->
 
             <WrapPanel>
                 <TextBlock Text="Válassz autót:" Width="100" Foreground="White"

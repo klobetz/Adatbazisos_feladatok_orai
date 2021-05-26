@@ -33,7 +33,7 @@ namespace DBF_WPF_projekt_01
                 var berlo = db.Berlo;
 
                 cb_automarka.ItemsSource = autok.ToList();
-                cb_rendszam.ItemsSource = autok.ToList();
+                //cb_rendszam.ItemsSource = autok.ToList();
                 cb_berlo.ItemsSource = berlo.ToList();                
                 
 
@@ -43,7 +43,24 @@ namespace DBF_WPF_projekt_01
         }
         private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
         {
+            using (var db = new AutoNyilvantartasDBEntities())
+            {
+                var kolcsonzotabla = new Kolcsonzo()
+                {
+                    Nev = tb_knev.Text,
+                    Cim = tb_kcim.Text,
+                    Auto_Id = (int)cb_automarka.SelectedValue,
+                    Berlo_Id = (int)cb_berlo.SelectedValue,                    
+                };
 
+                //vagy ezzel a megoldással
+                //var kolcsonzotabla2 = new Kolcsonzo();
+                //kolcsonzotabla2.Cim = tb_kcim.Text; ...
+
+                db.Kolcsonzo.Add(kolcsonzotabla);
+                db.SaveChanges();
+                dg_kolcsonzo.ItemsSource = db.Kolcsonzo.Include("Auto").Include("Berlo").ToList();
+            }
         }
 
         private void btn_autoadd_Click(object sender, RoutedEventArgs e)
