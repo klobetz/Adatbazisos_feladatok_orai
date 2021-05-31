@@ -7,6 +7,7 @@
       xmlns:local="clr-namespace:DBF_WPF_projekt_01"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="850"
+      Loaded="Page_Loaded"
       Title="BerloPage">
 
     <Grid>
@@ -33,7 +34,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                <TextBox x:Name="tb_nev" Width="200" Height="25" Margin="0,0,0,5" MaxLength="7"/>
+                <TextBox x:Name="tb_berlonev" Width="200" Height="25" Margin="0,0,0,5" MaxLength="50"/>
             </WrapPanel>
 
             <WrapPanel>
@@ -41,7 +42,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                <TextBox x:Name="tb_cim" Width="200" Height="25" Margin="0,0,0,5" MaxLength="30"/>
+                <TextBox x:Name="tb_berlocim" Width="200" Height="25" Margin="0,0,0,5" MaxLength="150"/>
 
             </WrapPanel>
 
@@ -50,14 +51,14 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                <TextBox x:Name="tb_nem" Width="200" Height="25" Margin="0,0,0,5" MaxLength="30"/>
+                <TextBox x:Name="tb_berlonem" Width="200" Height="25" Margin="0,0,0,5" MaxLength="1"/>
             </WrapPanel>
 
             
 
             <!--Hozzáad gomb létrehozása-->
             <StackPanel Grid.Column="13" Orientation="Horizontal" Margin="220,5,0,0">
-                <Button x:Name="btn_hozzaad" Content="Hozzáad" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_hozzaad_Click">
+                <Button x:Name="btn_berlohozzaad" Content="Hozzáad" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_berlohozzaad_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
@@ -93,7 +94,16 @@
                 <ColumnDefinition Width="310*"/>
             </Grid.ColumnDefinitions>
 
-            <DataGrid x:Name="dg_berlo" Margin="5,0,0,5" SelectionChanged="dg_berlo_SelectionChanged"/>
+            <DataGrid x:Name="dg_berlo" Margin="5,0,0,5" AutoGenerateColumns="False"
+                      SelectionChanged="dg_berlo_SelectionChanged"
+                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Név" Binding="{Binding Path=Nev}"/>
+                    <DataGridTextColumn Header="Cím" Binding="{Binding Path=Cim}"/>
+                    <DataGridTextColumn Header="Nem" Binding="{Binding Path=Nem}"/>
+                </DataGrid.Columns>
+                
+            </DataGrid>
 
             <StackPanel Grid.Column="1" Margin="10,0,5,0">
 
@@ -111,7 +121,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                    <TextBox x:Name="tb_nevfriss" Width="200" Height="25" Margin="0,0,0,5" MaxLength="7"/>
+                    <TextBox x:Name="tb_berlonevfriss" Width="200" Height="25" Margin="0,0,0,5" MaxLength="50"/>
                 </WrapPanel>
 
                 <WrapPanel>
@@ -119,7 +129,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                    <TextBox x:Name="tb_cimfriss" Width="200" Height="25" Margin="0,0,0,5" MaxLength="30"/>
+                    <TextBox x:Name="tb_berlocimfriss" Width="200" Height="25" Margin="0,0,0,5" MaxLength="150"/>
                 </WrapPanel>
 
                 <WrapPanel>
@@ -127,7 +137,7 @@
                                FontSize="14" FontWeight="Light" FontFamily="Fonts/#Dosis"
                                VerticalAlignment="Center"/>
 
-                    <TextBox x:Name="tb_nemfriss" Width="200" Height="25" Margin="0,0,0,5" MaxLength="30"/>
+                    <TextBox x:Name="tb_berlonemfriss" Width="200" Height="25" Margin="0,0,0,5" MaxLength="1"/>
                 </WrapPanel>
 
                 
@@ -152,7 +162,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="6" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,0,0">
-                <Button x:Name="btn_torol" Content="Adatok törlése" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_torol_Click">
+                <Button x:Name="btn_berlotorol" Content="Adatok törlése" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_berlotorol_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
@@ -180,7 +190,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="11" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,0,0">
-                <Button x:Name="btn_frissit" Content="Adatok frissítése" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_frissit_Click">
+                <Button x:Name="btn_berlofrissit" Content="Adatok frissítése" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_berlofrissit_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
