@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBF_WPF_projekt_01", "DBF_W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp gyakorlas DBF entity adat mentese", "WpfApp gyakorlas DBF entity adat mentese\WpfApp gyakorlas DBF entity adat mentese.csproj", "{CBE015CB-6D01-466E-B904-6D877AE25A34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_online_NuGet_telepítese", "Wpf_online_NuGet_telepítese\Wpf_online_NuGet_telepítese.csproj", "{AEFBC3A0-75E8-4EBB-8F1A-0AA79214CD16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CBE015CB-6D01-466E-B904-6D877AE25A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBE015CB-6D01-466E-B904-6D877AE25A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBE015CB-6D01-466E-B904-6D877AE25A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEFBC3A0-75E8-4EBB-8F1A-0AA79214CD16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEFBC3A0-75E8-4EBB-8F1A-0AA79214CD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEFBC3A0-75E8-4EBB-8F1A-0AA79214CD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEFBC3A0-75E8-4EBB-8F1A-0AA79214CD16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

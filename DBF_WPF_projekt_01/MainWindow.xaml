@@ -41,7 +41,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Kölcsönzés nyilvántartás" Grid.ColumnSpan="3"
+            
+                <TextBlock Text="Kölcsönzés nyilvántartás" Grid.ColumnSpan="3"
                        Foreground="White" FontWeight="Medium" FontSize="16" FontFamily="Fonts/#Dosis"
                        VerticalAlignment="Center"/>
 

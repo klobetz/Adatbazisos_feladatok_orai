@@ -40,7 +40,6 @@ namespace DBF_WPF_projekt_01
         {
             if (dg_berlo.SelectedItem != null)
             {
-
                 var adat = dg_berlo.SelectedItem as Berlo;
                 tb_berlonevfriss.Text = adat.Nev;
                 tb_berlocimfriss.Text = adat.Cim;
