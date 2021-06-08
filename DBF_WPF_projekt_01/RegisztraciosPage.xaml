@@ -12,7 +12,7 @@
         <WrapPanel Width="200" Background="#0f0f2d" Margin="0,20">
             <Label Content="Regisztrációs felület" FontWeight="Bold" FontSize="18" Foreground="White" FontFamily="Fonts/#Dosis"/>
 
-            <StackPanel Width="150" Margin="25">
+            <StackPanel Width="150" Margin="25,25,25,0">
                 <Label Content="Felhasználó név:" Foreground="White" FontFamily="Fonts/#Dosis"/>
                 <TextBox x:Name="tb_felhasznalonev"/>
 

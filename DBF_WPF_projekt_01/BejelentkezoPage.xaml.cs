@@ -27,12 +27,45 @@ namespace DBF_WPF_projekt_01
 
         private void btn_bejelentkezes_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tb_felhasznalonev.Text) || string.IsNullOrWhiteSpace(pwb_jelszo.Password))
+            {
+                MessageBox.Show("A mezők kitöltése kötelező!");
+            }
+            else
+            {
+                using (var db = new AutoNyilvantartasDBEntities())
+                {
+                    var ellenorzes = db.Felhasznalok.FirstOrDefault(adat=>adat.Felhasznalonev.Equals(tb_felhasznalonev.Text) && adat.Jelszo == pwb_jelszo.Password);
 
+                    if (ellenorzes!=null)
+                    {
+                        NavigationService.Navigate(new KolcsonzoPage());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hibás felhasználónév vagy jelszó!");
+                        tb_felhasznalonev.Clear();
+                        pwb_jelszo.Clear();
+                        tb_felhasznalonev.Focus();
+                    }
+                }
+            }
+            
         }
                
         private void lb_regisztralas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            NavigationService.Navigate(new RegisztraciosPage());
+        }
 
+        private void chb_jelszomutat_Checked(object sender, RoutedEventArgs e)
+        {
+            pwb_jelszo.PasswordChar = '\0';  
+        }
+
+        private void chb_jelszomutat_Unchecked(object sender, RoutedEventArgs e)
+        {
+            pwb_jelszo.PasswordChar = '*';
         }
     }
 }

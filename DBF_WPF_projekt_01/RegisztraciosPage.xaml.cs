@@ -42,7 +42,7 @@ namespace DBF_WPF_projekt_01
         
         private void lb_vissza_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            NavigationService.Navigate(new BejelentkezoPage());
         }
     }
 }

@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="AutoNyilvantartasDBModel.Kolcsonzo" Width="1.5" PointX="3.75" PointY="0.625" />
         <AssociationConnector Association="AutoNyilvantartasDBModel.FK_Kolcsonzo_Auto" />
         <AssociationConnector Association="AutoNyilvantartasDBModel.FK_Kolcsonzo_Berlo" />
+        <EntityTypeShape EntityType="AutoNyilvantartasDBModel.Felhasznalok" Width="2.5" PointX="9" PointY="2.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

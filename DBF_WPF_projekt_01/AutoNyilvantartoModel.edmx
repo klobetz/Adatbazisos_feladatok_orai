@@ -25,6 +25,14 @@
           <Property Name="Cim" Type="varchar" MaxLength="150" />
           <Property Name="Nem" Type="varchar" MaxLength="1" />
         </EntityType>
+        <EntityType Name="Felhasznalok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Felhasznalonev" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Jelszo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Kolcsonzo">
           <Key>
             <PropertyRef Name="Id" />
@@ -62,6 +70,7 @@
         <EntityContainer Name="AutoNyilvantartasDBModelStoreContainer">
           <EntitySet Name="Auto" EntityType="Self.Auto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Berlo" EntityType="Self.Berlo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Felhasznalok" EntityType="Self.Felhasznalok" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kolcsonzo" EntityType="Self.Kolcsonzo" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Kolcsonzo_Auto" Association="Self.FK_Kolcsonzo_Auto">
             <End Role="Auto" EntitySet="Auto" />
@@ -100,6 +109,7 @@
             <End Role="Berlo" EntitySet="Berlo" />
             <End Role="Kolcsonzo" EntitySet="Kolcsonzo" />
           </AssociationSet>
+          <EntitySet Name="Felhasznalok" EntityType="AutoNyilvantartasDBModel.Felhasznalok" />
         </EntityContainer>
         <EntityType Name="Berlo">
           <Key>
@@ -147,6 +157,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Felhasznalok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Felhasznalonev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Jelszo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -182,6 +200,15 @@
                 <ScalarProperty Name="Auto_Id" ColumnName="Auto_Id" />
                 <ScalarProperty Name="Cim" ColumnName="Cim" />
                 <ScalarProperty Name="Nev" ColumnName="Nev" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Felhasznalok">
+            <EntityTypeMapping TypeName="AutoNyilvantartasDBModel.Felhasznalok">
+              <MappingFragment StoreEntitySet="Felhasznalok">
+                <ScalarProperty Name="Jelszo" ColumnName="Jelszo" />
+                <ScalarProperty Name="Felhasznalonev" ColumnName="Felhasznalonev" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

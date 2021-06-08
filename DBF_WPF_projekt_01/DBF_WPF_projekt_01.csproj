@@ -85,6 +85,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Felhasznalok.cs">
+      <DependentUpon>AutoNyilvantartoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RegisztraciosPage.xaml.cs">
       <DependentUpon>RegisztraciosPage.xaml</DependentUpon>
     </Compile>
