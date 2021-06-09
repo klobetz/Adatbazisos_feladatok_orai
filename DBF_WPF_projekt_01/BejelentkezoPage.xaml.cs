@@ -60,12 +60,17 @@ namespace DBF_WPF_projekt_01
 
         private void chb_jelszomutat_Checked(object sender, RoutedEventArgs e)
         {
-            pwb_jelszo.PasswordChar = '\0';  
-        }
+            tb_jelszo.Text = pwb_jelszo.Password;
+            pwb_jelszo.Visibility = Visibility.Collapsed;
+            tb_jelszo.Visibility = Visibility.Visible;
+
+        }  
 
         private void chb_jelszomutat_Unchecked(object sender, RoutedEventArgs e)
         {
-            pwb_jelszo.PasswordChar = '*';
+            pwb_jelszo.Password = tb_jelszo.Text;
+            tb_jelszo.Visibility = Visibility.Collapsed;
+            pwb_jelszo.Visibility = Visibility.Visible;
         }
     }
 }

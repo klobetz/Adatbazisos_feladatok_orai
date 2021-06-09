@@ -18,8 +18,9 @@
 
                 <Label Content="Jelszó:" Foreground="White" FontFamily="Fonts/#Dosis"/>
                 <PasswordBox x:Name="pwb_jelszo" PasswordChar="*"/>
+                <TextBox x:Name="tb_jelszo" Visibility="Collapsed"/>
 
-                
+
 
                 <WrapPanel HorizontalAlignment="Right" Margin="0,5">
                     <Label Content="Jelszó megjelenítése" FontSize="10" Foreground="White" FontFamily="Fonts/#Dosis"/>
