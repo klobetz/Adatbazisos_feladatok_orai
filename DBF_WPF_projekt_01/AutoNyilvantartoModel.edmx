@@ -27,11 +27,10 @@
         </EntityType>
         <EntityType Name="Felhasznalok">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Felhasznalonev" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Felhasznalonev" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Jelszo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Jelszo" Type="varchar" MaxLength="65" Nullable="false" />
         </EntityType>
         <EntityType Name="Kolcsonzo">
           <Key>
@@ -159,11 +158,10 @@
         </Association>
         <EntityType Name="Felhasznalok">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Felhasznalonev" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Felhasznalonev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Jelszo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Jelszo" Type="String" Nullable="false" MaxLength="65" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -209,7 +207,6 @@
               <MappingFragment StoreEntitySet="Felhasznalok">
                 <ScalarProperty Name="Jelszo" ColumnName="Jelszo" />
                 <ScalarProperty Name="Felhasznalonev" ColumnName="Felhasznalonev" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

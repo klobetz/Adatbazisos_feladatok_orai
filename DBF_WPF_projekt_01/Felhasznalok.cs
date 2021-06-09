@@ -14,7 +14,6 @@ namespace DBF_WPF_projekt_01
     
     public partial class Felhasznalok
     {
-        public int Id { get; set; }
         public string Felhasznalonev { get; set; }
         public string Jelszo { get; set; }
     }

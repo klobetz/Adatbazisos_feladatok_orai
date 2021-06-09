@@ -35,7 +35,9 @@ namespace DBF_WPF_projekt_01
             {
                 using (var db = new AutoNyilvantartasDBEntities())
                 {
-                    var ellenorzes = db.Felhasznalok.FirstOrDefault(adat=>adat.Felhasznalonev.Equals(tb_felhasznalonev.Text) && adat.Jelszo == pwb_jelszo.Password);
+                    var jelszohash = EasyEncryption.SHA.ComputeSHA256Hash(pwb_jelszo.Password);
+
+                    var ellenorzes = db.Felhasznalok.FirstOrDefault(adat=>adat.Felhasznalonev.Equals(tb_felhasznalonev.Text) && adat.Jelszo == jelszohash);
 
                     if (ellenorzes!=null)
                     {
@@ -52,12 +54,7 @@ namespace DBF_WPF_projekt_01
             }
             
         }
-               
-        private void lb_regisztralas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            NavigationService.Navigate(new RegisztraciosPage());
-        }
-
+             
         private void chb_jelszomutat_Checked(object sender, RoutedEventArgs e)
         {
             tb_jelszo.Text = pwb_jelszo.Password;
@@ -72,5 +69,10 @@ namespace DBF_WPF_projekt_01
             tb_jelszo.Visibility = Visibility.Collapsed;
             pwb_jelszo.Visibility = Visibility.Visible;
         }
+                private void lb_regisztralas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new RegisztraciosPage());
+        }
     }
+
 }
