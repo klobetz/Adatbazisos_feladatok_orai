@@ -58,7 +58,7 @@
             </Button>
         </WrapPanel>
 
-        <DataGrid Grid.Row="2" Margin="10" Name="dg_keres">
+        <DataGrid Grid.Row="2" Margin="10" Name="dg_keres" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="dg_keres_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Név" Binding="{Binding Path=Nev}"/>
                 <DataGridTextColumn Header="Cím" Binding="{Binding Path=Cim}"/>

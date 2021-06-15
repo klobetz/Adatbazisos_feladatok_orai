@@ -23,20 +23,34 @@ namespace DBF_WPF_projekt_01
         {
             InitializeComponent();
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new AutoNyilvantartasDBEntities())
+            {
+                dg_keres.ItemsSource = db.Kolcsonzo.Include("Auto").Include("Berlo").ToList();
+            }        
+                      
+        }
 
         private void btn_kereses_Click(object sender, RoutedEventArgs e)
         {
+            using (var db = new AutoNyilvantartasDBEntities())
+            {
+                var kereses = db.Kolcsonzo.Include("Auto").Include("Berlo").Where(adat=>
+                adat.Nev.Contains(tb_kereso.Text) ||
+                adat.Cim.Contains(tb_kereso.Text) ||
+                adat.Auto.Marka.Contains(tb_kereso.Text) ||
+                adat.Auto.Tipus.Contains(tb_kereso.Text) ||
+                adat.Berlo.Nev.Contains(tb_kereso.Text));
 
+                dg_keres.ItemsSource = kereses.ToList();
+            }
+        
         }
 
         private void btn_export_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        }        
     }
 }
