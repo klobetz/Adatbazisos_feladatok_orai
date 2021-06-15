@@ -13,7 +13,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="220"/>
-            <RowDefinition Height="*"/>           
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!--Adatok felvitele mezők létrehozása és a gomb-->
@@ -65,9 +65,9 @@
                 <ComboBox x:Name="cb_automarka" Width="200" Height="25" Margin="0,0,0,5"
                           DisplayMemberPath="Marka"
                           SelectedValuePath="Id"/>
-                
-                
-                
+
+
+
 
                 <Button x:Name="btn_autoadd" Margin="30,0,0,0" Content="Autó hozzáad" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_autoadd_Click">
                     <Button.Style>
@@ -132,7 +132,7 @@
                 </Button>
             </WrapPanel>
 
-            
+
 
 
 
@@ -165,7 +165,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                
+
                 <Button x:Name="btn_keres" Content="Kereső" Margin="70,0,0,0" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_keres_Click">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -198,20 +198,21 @@
         <!--Datagrid és a mezők-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>                
+                <ColumnDefinition Width="89*"/>
+                <ColumnDefinition Width="81*"/>
             </Grid.ColumnDefinitions>
 
             <DataGrid x:Name="dg_kolcsonzo" Margin="5,0,0,5"
                       AutoGenerateColumns="False"               
-                      SelectionChanged="dg_kolcsonzo_SelectionChanged">
+                      SelectionChanged="dg_kolcsonzo_SelectionChanged" Grid.ColumnSpan="2">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Cég név" Binding="{Binding Path=Nev}"/>
                     <DataGridTextColumn Header="Cég székhely" Binding="{Binding Path=Cim}"/>
                     <DataGridTextColumn Header="Autó márka" Binding="{Binding Path=Auto.Marka}"/>
                     <DataGridTextColumn Header="Bérlő neve" Binding="{Binding Path=Berlo.Nev}"/>
-                </DataGrid.Columns>               
-                
+                </DataGrid.Columns>
+
             </DataGrid>
 
 

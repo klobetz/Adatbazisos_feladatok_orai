@@ -25,7 +25,7 @@ namespace DBF_WPF_projekt_01
             InitializeComponent();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {             
+        {
             using (var db = new AutoNyilvantartasDBEntities())
             {
                 var autok = db.Auto;
@@ -34,8 +34,8 @@ namespace DBF_WPF_projekt_01
 
                 cb_automarka.ItemsSource = autok.ToList();
                 //cb_rendszam.ItemsSource = autok.ToList();
-                cb_berlo.ItemsSource = berlo.ToList();                
-                
+                cb_berlo.ItemsSource = berlo.ToList();
+
 
                 dg_kolcsonzo.ItemsSource = kolsonzok.ToList();
             }
@@ -45,7 +45,7 @@ namespace DBF_WPF_projekt_01
         {
             using (var db = new AutoNyilvantartasDBEntities())
             {
-                if (string.IsNullOrWhiteSpace(tb_kcim.Text)|| string.IsNullOrWhiteSpace(tb_knev.Text))
+                if (string.IsNullOrWhiteSpace(tb_kcim.Text) || string.IsNullOrWhiteSpace(tb_knev.Text))
                 {
                     MessageBox.Show("A mezők kitöltése kötelező!");
                 }

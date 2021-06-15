@@ -23,5 +23,20 @@ namespace DBF_WPF_projekt_01
         {
             InitializeComponent();
         }
+
+        private void btn_kereses_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_export_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

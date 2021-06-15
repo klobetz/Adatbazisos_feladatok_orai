@@ -4,10 +4,111 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBF_WPF_projekt_01"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="KeresesWindow" Height="450" Width="800" Background="#181735">
+        Title="KeresesWindow" Height="450" Width="800" Background="#181735"
+        Loaded="Window_Loaded">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="269*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <fa:ImageAwesome Icon="Search" Margin="5,5,0,5" Height="50" Foreground="Orange"/>
+            
+            <Label Content="Adatok keresése" Margin="10,0,0,0"
+                   FontSize="14" FontFamily="Fonts/#dosis" Foreground="White" FontWeight="Medium"
+                   VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="1">
+            <Label Content="Kereső:" Width="60"
+                   FontSize="14" FontFamily="Fonts/#dosis" FontWeight="Light" Foreground="White"
+                   VerticalAlignment="Center"/>
+            
+            <TextBox x:Name="tb_kereso" Width="500" Height="30"/>
+
+            <Button x:Name="btn_kereses" Content="Kereső" Margin="15,0,0,0" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_kereses_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                        <Setter Property="Background" Value="Orange"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="OrangeRed"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="80" Height="25" CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </WrapPanel>
+
+        <DataGrid Grid.Row="2" Margin="10" Name="dg_keres">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Név" Binding="{Binding Path=Nev}"/>
+                <DataGridTextColumn Header="Cím" Binding="{Binding Path=Cim}"/>
+                <DataGridTextColumn Header="Auto" Binding="{Binding Path=Auto.Marka}"/>
+                <DataGridTextColumn Header="Típus" Binding="{Binding Path=Auto.Tipus}"/>
+                <DataGridTextColumn Header="Bérlő" Binding="{Binding Path=Berlo.Nev}"/>
+            </DataGrid.Columns>            
+        </DataGrid>
         
         
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="btn_export" Grid.Column="6" Content="Exportálás" Margin="15,0,0,0" Foreground="White" FontSize="14" FontWeight="Medium" Click="btn_export_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                        <Setter Property="Background" Value="Orange"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="OrangeRed"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="90" Height="25" CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+        
+
+
     </Grid>
 </Window>
