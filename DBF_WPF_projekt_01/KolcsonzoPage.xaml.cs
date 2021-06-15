@@ -25,7 +25,7 @@ namespace DBF_WPF_projekt_01
             InitializeComponent();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
+        {             
             using (var db = new AutoNyilvantartasDBEntities())
             {
                 var autok = db.Auto;
@@ -45,21 +45,29 @@ namespace DBF_WPF_projekt_01
         {
             using (var db = new AutoNyilvantartasDBEntities())
             {
-                var kolcsonzotabla = new Kolcsonzo()
+                if (string.IsNullOrWhiteSpace(tb_kcim.Text)|| string.IsNullOrWhiteSpace(tb_knev.Text))
                 {
-                    Nev = tb_knev.Text,
-                    Cim = tb_kcim.Text,
-                    Auto_Id = (int)cb_automarka.SelectedValue,
-                    Berlo_Id = (int)cb_berlo.SelectedValue,                    
-                };
+                    MessageBox.Show("A mezők kitöltése kötelező!");
+                }
+                else
+                {
+                    var kolcsonzotabla = new Kolcsonzo()
+                    {
+                        Nev = tb_knev.Text,
+                        Cim = tb_kcim.Text,
+                        Auto_Id = (int)cb_automarka.SelectedValue,
+                        Berlo_Id = (int)cb_berlo.SelectedValue,
+                    };
 
-                //vagy ezzel a megoldással
-                //var kolcsonzotabla2 = new Kolcsonzo();
-                //kolcsonzotabla2.Cim = tb_kcim.Text; ...
+                    //vagy ezzel a megoldással
+                    //var kolcsonzotabla2 = new Kolcsonzo();
+                    //kolcsonzotabla2.Cim = tb_kcim.Text; ...
 
-                db.Kolcsonzo.Add(kolcsonzotabla);
-                db.SaveChanges();
-                dg_kolcsonzo.ItemsSource = db.Kolcsonzo.Include("Auto").Include("Berlo").ToList();
+                    db.Kolcsonzo.Add(kolcsonzotabla);
+                    db.SaveChanges();
+                    dg_kolcsonzo.ItemsSource = db.Kolcsonzo.Include("Auto").Include("Berlo").ToList();
+                }
+                
             }
         }
 
@@ -82,6 +90,10 @@ namespace DBF_WPF_projekt_01
 
         }
 
-        
+        private void btn_keres_Click(object sender, RoutedEventArgs e)
+        {
+            var kereso = new KeresesWindow();
+            kereso.ShowDialog();
+        }
     }
 }

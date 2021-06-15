@@ -40,8 +40,9 @@ namespace DBF_WPF_projekt_01
                     var ellenorzes = db.Felhasznalok.FirstOrDefault(adat=>adat.Felhasznalonev.Equals(tb_felhasznalonev.Text) && adat.Jelszo == jelszohash);
 
                     if (ellenorzes!=null)
-                    {
+                    {                        
                         NavigationService.Navigate(new KolcsonzoPage());
+                        ((MainWindow)Application.Current.MainWindow).fejlec.IsEnabled = true;
                     }
                     else
                     {

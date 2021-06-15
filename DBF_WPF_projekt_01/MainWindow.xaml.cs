@@ -48,6 +48,7 @@ namespace DBF_WPF_projekt_01
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Main.Content = new BejelentkezoPage();
+            fejlec.IsEnabled = false;
         }
     }
 }

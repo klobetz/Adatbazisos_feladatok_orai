@@ -23,7 +23,7 @@
        
 
         <!--Fejrész kialakítása-->
-        <Grid Background="#0f0f2d" Panel.ZIndex="1">
+        <Grid Background="#0f0f2d" Panel.ZIndex="1" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -46,8 +46,10 @@
                        Foreground="White" FontWeight="Medium" FontSize="16" FontFamily="Fonts/#Dosis"
                        VerticalAlignment="Center"/>
 
-            
-                <Button x:Name="bt_kolcsonzes" Grid.Column="4" Content="Kölcsönzés" Foreground="LightGray" Click="bt_kolcsonzes_Click">
+
+            <WrapPanel x:Name="fejlec" Grid.Column="4" Grid.ColumnSpan="3" VerticalAlignment="Center">
+                
+                <Button x:Name="bt_kolcsonzes" Margin="0,0,15,0" Content="Kölcsönzés" Foreground="LightGray" Click="bt_kolcsonzes_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
@@ -73,7 +75,7 @@
                     </Button.Template>
                 </Button>
 
-            <Button x:Name="bt_autok" Grid.Column="5" Content="Auto" Foreground="LightGray" Click="bt_autok_Click">
+                <Button x:Name="bt_autok"  Margin="0,0,15,0" Content="Auto" Foreground="LightGray" Click="bt_autok_Click">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
@@ -99,7 +101,7 @@
                 </Button.Template>
             </Button>
 
-            <Button x:Name="bt_berlo" Grid.Column="6" Content="Bérlő" Foreground="LightGray" Click="bt_berlo_Click">
+            <Button x:Name="bt_berlo"  Content="Bérlő" Foreground="LightGray" Click="bt_berlo_Click">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
@@ -124,6 +126,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            </WrapPanel>
 
 
             <TextBlock Text="Website" Grid.Column="8" Grid.ColumnSpan="3"
