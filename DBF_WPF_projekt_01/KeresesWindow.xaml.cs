@@ -82,9 +82,9 @@ namespace DBF_WPF_projekt_01
                     {                       
                         ws.Cell(row, column++).Value = item.Nev;
                         ws.Cell(row, column++).Value = item.Cim;
-                        ws.Cell(row, column++).Value = item.Auto == null ? null : item.Auto.Marka; //az üres mezökre hiba javítás
-                        ws.Cell(row, column++).Value = item.Auto == null ? null : item.Auto.Tipus;
-                        ws.Cell(row, column).Value = item.Berlo == null ? null : item.Berlo.Nev;
+                        ws.Cell(row, column++).Value = item.Auto?.Marka; //az üres mezökre hiba javítás //Null Reference Exception
+                        ws.Cell(row, column++).Value = item.Auto?.Tipus;
+                        ws.Cell(row, column).Value = item.Berlo?.Nev;
                                                 
                         row++;
                         column = 1; //vissza kell állítani mert különben elcsúszik a sor kiíratása
